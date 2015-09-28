@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rotten Tomatoes Search</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<style type="text/css">
+		html {
+    		overflow-y: scroll;
+
+		}
+		td {
+			padding: 10px;
+		}
+		#image-wrapper {
+			text-align: center;
+		}
+		#movie-image {
+			width: 35%;
+			height: 300px;
+			min-height: 50px;
+			height: 300px !important;        
+			height: 50px; 
+		}
+		.left{
+			font-weight: 600;
+			width: 20%;
+		}
+		.table-section {
+			margin-top: 50px;
+		}
+		.search-section {
+			margin-top: 100px;
+		}
+		.input-search.form-control {
+			width: 80%;
+		}
+		.search-label {
+			border-bottom: 1px solid gray;
+			color: blue;
+			font-weight: 600;
+		}
+		.loader {
+			display: block;
+   			margin-left: auto;
+    		margin-right: auto;
+    		margin-top: 120px;
+		}
+		.error-notice {
+			color: red;
+			font-weight: 600;
+			font-size: 16pt;
+			text-align: center;
+		}
+	</style>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-default navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <a class="navbar-brand" href="#"> Rotten Tomatos Search</a>
+	        </div>
+	      </div>
+	    </nav>
+
+		<div class="form-inline search-section col-lg-12">
+	  		<label class="search-label" for="usr">Movie Search:</label>
+	  		<input type="text" placeholder="Enter the movie title..." class="input-search form-control" id="input">
+	  		<button id="submit" class="btn btn-primary">Search</button>
+		</div>
+		<div class="container">
+			<div class="col-lg-12 col-md-12">
+				<div id="movies"></div>
+			</div>
+		</div>	
+	</div>
+
+	<script type="text/x-handlebars" id="movie-template">
+		<div style="margin-top: 50px;">
+			<div id="image-wrapper">
+				<img id="movie-image" src="{{posters.original}}" alt="{{title}}">
+			</div>	
+			<div class="table-section">
+				<table class="table-bordered col-lg-12 col-md-12">
+				  <tr>
+				    <td class="left">Title</td>
+				    <td>{{title}}</td>
+				  </tr>
+				  <tr>
+				    <td class="left">Audience Ratings</td>
+				    <td>{{ratings.audience_rating}}</td> 
+				  </tr>
+				  <tr>
+				  	<td class="left"> Audience Score</td>
+				    <td>{{ratings.audience_score}}</td> 
+				  </tr>
+				  <tr>
+				  	<td class="left">Cast</td>
+				    <td class="name">
+				    	{{#each abridged_cast}}
+							{{name}}
+							<br />
+						{{/each}}
+
+				    </td>  
+				  </tr>
+				    <td class="left">Synopsis</td>
+				    <td>
+					    {{#if synopsis}}
+							{{synopsis}}
+						{{else}}
+						  <em>Synopsis unavailable.</em>
+						{{/if}}
+				    </td>
+				  </tr>
+				</table>
+			</div>
+		</div>	
+	</script>
+
+<script src="jquery-2.1.4.js"></script>
+<script src="handlebars-v4.0.2.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
