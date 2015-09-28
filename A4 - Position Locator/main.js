@@ -1,69 +1,74 @@
-var center = new google.maps.LatLng(34.0029139, -118.420485);
+var getPosition = navigator.geolocation.getCurrentPosition(function(position) {
 
-var map = new google.maps.Map(document.getElementById('map-canvas'), {
-	center: center,
-	zoom: 5
-});
+	//getting the current location of the user
+	var center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-var marker = new google.maps.Marker({
-	map: map,
-	position: center,
-	animation: google.maps.Animation.DROP
-});
-
-var infowindow = new google.maps.InfoWindow({
-	content: 'Home!',
-	position: center
-});
-
-
-google.maps.event.addListener(marker, 'click', function(event) {
-	infowindow.open(map);
-});
-
-$('form').on('submit', function(e) {
-	e.preventDefault();
-	var search = $('#search').val();
-	var geocoder = new google.maps.Geocoder();
-
-	geocoder.geocode({
-		address: search
-	},
-	function(results) {
-		if(results.length > 0) {
-			var latlng = results[0].geometry.location; //contains a LatLng object
-			plotPoint(latlng, results[0].formatted_address);
-
-		} else {
-			alert('Location not found!');
-		}
+	//creating the map and setting it up to the current location (before the reverse geocoding)
+	var map = new google.maps.Map(document.getElementById('map-canvas'), {
+		center: center,
+		zoom: 5
 	});
 
-	console.log(search);
-});
-
-function plotPoint(latlng, formatted_address) {
-	// create a marker and set it on the map
-	var marker = new google.maps.Marker({
-		map: map,
-		position: latlng,
-		animation: google.maps.Animation.DROP
-	});
-
-	// create a info window (optionally)
+	//creating the new information window and setting it up
 	var infowindow = new google.maps.InfoWindow({
-		content:  formatted_address,
-		position: latlng
+		content: '',
+		position: center
 	});
 
-	google.maps.event.addListener(marker, 'click', function(event) {
-		infowindow.open(map);
-	});
+	//create a new instance of the Goecoder class 
+	var geocoder = new google.maps.Geocoder(); 
 
-	// set it on the map 
-	// set map center to latlng
-	map.setCenter(latlng);
-}
+	//calling the method that reverse geocodes the current location
+	reverseGeocode(geocoder, map, infowindow, position); 
 
+}, function(position) {
+	window.alert("The map couldn't be loaded");
+});
 
+function reverseGeocode(geocoder, map, infowindow, position) {
 
+	//giving the received values to the object 
+	var latlng = {lat: position.coords.latitude, lng: position.coords.longitude};
+
+	//reverse geocoding the current location
+	geocoder.geocode({'location': latlng}, function(results, status) {
+
+	//if the location is found, show the results	
+    if (status === google.maps.GeocoderStatus.OK) {
+       if(results[0]) {
+
+       	//geting the result's latitude and longtitude
+       	//and giving these values to the new object
+       	var newLat = results[0].geometry.location.lat();
+       	var newLng = results[0].geometry.location.lng();
+    		var newLatLng = {lat: newLat, lng: newLng};	
+
+    		//method to zoom in the map
+       		map.setZoom(16);  
+       		
+       		//location of the icon
+       		var iconBase = 'android.png';
+
+       		//created the new marker with animation and custom icon
+       		var marker = new google.maps.Marker({
+       			position: newLatLng,
+       			map: map,
+       			icon: iconBase, //icon is set
+       			animation: google.maps.Animation.DROP
+       		});
+       		
+       		//if the user clicks on the marker, show him the address
+       		google.maps.event.addListener(marker, 'click', function(event) {
+       			infowindow.setContent(results[0].formatted_address);
+       			infowindow.open(map, marker);
+			});
+       }
+       else {
+       		window.alert('No results found');
+       }
+    } 
+    else {
+    	window.alert('Geocoder failed due to ' + status);
+    }
+  });
+};
