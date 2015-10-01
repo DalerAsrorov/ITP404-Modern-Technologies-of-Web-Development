@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<title>Assignment 5 - AJAX and Promises</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    	<div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Music Library</a>
+
+        </div>       
+    </nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 left-side">
+				<div class="headers">Artists</div>
+				<ul class="list-group">
+					<div id="artists">
+						
+					</div>
+					 <!-- <a href="#"><li class="list-group-item">1</li></a> -->
+				</ul>	
+			</div>
+
+			<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 right-side"> 
+				<div class="headers">Songs</div>
+				<div id="songs">
+					<!-- Songs list will go here... -->
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12  genre-wrapper"> 
+				<div class="headers">Genres</div>
+				<div id="genres">
+					<!-- Songs list will go here... -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/x-handlebars" id="artists-template">
+			<a href="#" data-id="{{id}}">
+				<li class="list-group-item">{{artistName}}</li>
+			</a>
+	</script>
+	<script type="text/x-handlebars" id="songs-template">
+			<li class="list-group-item">{{title}} </li>
+	</script>
+	<script type="text/x-handlebars" id="genre-template">
+				<li class="list-group-item">
+					{{#if genreTitle}}
+							{{genreTitle}}
+						{{else}}
+						  <em>No Genre</em>
+					{{/if}}
+				</li>
+	</script>
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	
+	<script src="script.js"></script>
+</body>
+</html>

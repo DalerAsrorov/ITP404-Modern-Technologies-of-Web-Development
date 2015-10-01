@@ -1,0 +1,72 @@
+html, body {
+	margin: 0; padding: 0; 
+
+	background: #25374A;
+}
+nav {
+	position: fixed;
+}
+
+#genres, #songs {
+	margin-top: 20px;
+}
+
+#genres {
+	background: #CCE6FF;
+}
+
+.container {
+	margin-top: 20px;
+}
+html {
+	position: relative;
+}
+
+.genre-wrapper {
+	background: #CCE6FF;
+	border-radius: 0 15px 15px 0;
+}
+
+.left-side, .right-side, .genre-wrapper {
+	margin-top: 0px;
+	position: relative;
+	overflow-y: scroll !important;
+	height: 700px;
+}
+
+.headers {
+	width: 100%; 
+	font-size: 50px; 
+	padding: 0 10px;
+}
+
+.genre {
+	color: #B8B8B8;
+}
+
+.loader {
+	width: 300px;
+	height: 300px;
+	display: block;
+	margin: 0 auto;
+}
+
+.left-side {
+	background:#E9EBED;
+	border-radius: 15px 0px 0px 15px;
+	
+}
+.right-side {
+	border-radius: 0px 0px 0px 0px;
+	background: #66CCFF;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
