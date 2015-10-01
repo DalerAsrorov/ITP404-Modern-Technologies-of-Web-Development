@@ -11,6 +11,14 @@ nav {
 	margin-top: 20px;
 }
 
+.artists-loader {
+	width: 200px;
+	height: 200px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
 #genres {
 	background: #CCE6FF;
 }

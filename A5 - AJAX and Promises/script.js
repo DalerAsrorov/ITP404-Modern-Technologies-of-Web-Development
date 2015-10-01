@@ -10,10 +10,13 @@ var genreHtmlList = "";
 var array = [];
 
 function getArtists() {
+	$('#artists').html('<img class="artists-loader" src="loading-artists.gif" />'); 
 	return $.ajax({
 		url: 'http://itp-api.herokuapp.com/artists'
 	}).then(function(response) {		
+		
 		response.artists.forEach(function(artist){
+
 			artistHtmlList += artistTemplate(artist);
 			$('#artists').html(artistHtmlList);
 		});
