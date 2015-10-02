@@ -30,6 +30,7 @@ var setG = true;
 function getSongs(num) {
 		var check = false;
 		songHtmlList = '';
+
 		return $.ajax({
 			url: 'http://itp-api.herokuapp.com/songs'
 		}).then(function(response) {
@@ -47,8 +48,8 @@ function getSongs(num) {
 				};
 			});
 			if (check === false) {
-				displayLoader();
-				displayError();
+				displaySongLoader();
+				displaySongError();
 				emptyGenre();
 			};
 
@@ -62,7 +63,6 @@ function emptyGenre() {
 
 function getGenre(songId) {
 	genreHtmlList ='';
-	console.log(songId);
 	$.ajax({
 	url: 'http://itp-api.herokuapp.com/genres',
 		success: function(response) {
@@ -77,10 +77,10 @@ function getGenre(songId) {
 	});
 };
 
-displayLoader = function (){
+displaySongLoader = function (){
 	$('#songs').html('<img class="loader" src="loading.gif" />'); 
 };
-displayError = function() {
+displaySongError = function() {
 	$('#songs').html('<img class="loader" src="notfound.png" />'); 
 };
 
@@ -89,7 +89,7 @@ getArtists(); //calls the artists ajax function
 $('#artists').on('click', 'a', function(e) {
 	$('#songs').html('');
 	e.preventDefault();
-	displayLoader();
+	displaySongLoader();
 	//console.log('click');
 	var id = $(this).data('id');
 	console.log(array);
