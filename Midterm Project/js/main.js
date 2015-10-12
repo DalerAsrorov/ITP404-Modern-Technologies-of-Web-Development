@@ -14,6 +14,7 @@ var map = new google.maps.Map(document.getElementById('map-canvas'), {
 });
 
 var plotPoints = function(locObj) {
+	//console.log(venueAddress);
 	var myLatlng = new google.maps.LatLng(parseFloat(locObj.lat),parseFloat(locObj.lon));
 	//created the new marker with animation and custom icon
 	var marker = new google.maps.Marker({
@@ -21,6 +22,18 @@ var plotPoints = function(locObj) {
 		map: map,
 		animation: google.maps.Animation.DROP
 	});
+
+		//creating the new information window and setting it up
+	// var infowindow = new google.maps.InfoWindow({
+	// 	content: venueAddress,
+	// 	position: myLatlng
+	// });
+
+ //   		//if the user clicks on the marker, show him the address
+ //    google.maps.event.addListener(marker, 'click', function(event) {
+	// 		//infowindow.setContent(venueAddress);
+	// 		infowindow.open(map, marker);
+	// });
 };
 
 app.controller('NavbarCtrl', function($scope) {
@@ -39,7 +52,10 @@ app.controller('EventsSearchCtrl', function($scope, Events, Location){
 
       	$scope.listOfEvents.forEach(function(event) {
       		$scope.locationObj = Location.getLocation(event); //getting the location object
+      		//console.log(event);
+      		//plotPoints($scope.locationObj, event.venue_address);
       		plotPoints($scope.locationObj);
+      		console.log(event.venue_address);
       		map.setZoom(3);
   		});
     });
@@ -63,7 +79,7 @@ app.factory('Events', function($http) {
 app.factory('Location', function() {
 	return {
 		getLocation: function(event) {
-			console.log(event);
+			//console.log(event);
 			var loc = {
 				lat: event.latitude,
 				lon: event.longitude

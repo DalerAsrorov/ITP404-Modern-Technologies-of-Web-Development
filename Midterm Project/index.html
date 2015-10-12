@@ -57,6 +57,7 @@
                <!--To interpret the html part in the description, I used ngSanitize directive ng-bind-html --> 
                 <span ng-if="list.description" style="font-weight: 800">Description: </span>
                 <div class="description" ng-bind-html="list.description"> </div> <br>
+                 <span ng-if="!list.venue-address || !list.city-country" style="font-weight: 800">Address: </span>
                 <address>
                   <span class="venue-address"> {{ list.venue_address }} </span> <br>
                   <span class="city-country"> {{ list.city_name }}, {{ list.country_name }}</span> <br>
