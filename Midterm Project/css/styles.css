@@ -1,3 +1,124 @@
 html, body {
 	margin:0; padding:0;
+	/*background: #E8E8E8;*/
 }
+
+address { 
+    display: block;
+    font-style: italic;
+}
+
+
+.nav > li > a {
+  display: block;
+}
+/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+  height: 100%;
+}
+
+.main {
+	margin-top: 80px;
+}
+
+.navbar-inverse {
+	height: 50px;
+}
+
+.author {
+	color: #fff;
+	float: right;
+	position: relative;
+	top: -35px;
+	margin-right: 20px;
+	font-style: italic;
+}
+
+@media screen and (max-width: 767px) {
+    .author {
+        display: none;
+    }
+}
+
+.map-area {
+	border-radius: 0px 5px 5px 0px;
+}
+.events-list-area {
+	border-radius: 5px 0px 0px 5px;
+	overflow: y-axis;
+}
+
+/* Styling for the map area */
+.map-area {
+	height: 700px;
+	float: none;
+	display: block;
+	margin: 0 auto;
+}
+
+.row-fluid {
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 30px #888;
+}
+
+/* The grid for the list of the events */
+.events-list-area {
+	background-color: white;
+	height: 700px;
+	flaot: none;
+	display: block;
+	margin: 0 auto;
+	overflow-y: scroll;
+}
+
+.navbar-inverse .navbar-collapse {
+	background: #222;
+}
+
+.list {
+	width: 100%;
+	border: 1px solid #A0A0A0;
+	/*height: 200px;*/
+	padding: 0 30px;
+	word-wrap: break-word;
+}
+
+.events-list-area {
+	padding: 0;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    background-color: rgba(0,0,0,.4);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.8);
+}
+
+.header-link:hover  {
+	text-decoration: none;
+}
+
+.description {
+	font-size: 12px;
+	color: #989898;
+	font-style: italic;
+	
+}
+
+.venue-image {
+	float: none;
+	display: block;
+	margin: 0 auto;
+
+}
+
+
