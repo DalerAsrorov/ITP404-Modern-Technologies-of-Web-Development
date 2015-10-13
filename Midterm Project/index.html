@@ -12,7 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-loading-bar/build/loading-bar.css">
     <!-- Custom styles for this template -->
     <link href="css/styles.css" rel="stylesheet">
 
@@ -43,7 +43,7 @@
           </ul>
         </div><!--/.nav-collapse -->
       </div>
-      <span class="author">{{ hLeft }}</span>
+      <span class="author"><a ng-href="{{ githubLink }}" target="__blank">by {{ name }}</a></span>
     </nav>
 
     <div class="container-fluid main" ng-controller="EventsSearchCtrl">
@@ -84,6 +84,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SW1tz6LZeuoylTvzAEnagTCF7xu4yH8"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.min.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/main.js"></script>
   </body>

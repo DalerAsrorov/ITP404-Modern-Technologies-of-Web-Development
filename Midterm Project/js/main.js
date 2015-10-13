@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngSanitize']);
+var app = angular.module('myApp', ['ngSanitize', 'angular-loading-bar']);
 
 var name = "Daler Asrorov";
 var artist = "Limp Bizkit"; 
@@ -22,29 +22,19 @@ var plotPoints = function(locObj) {
 		map: map,
 		animation: google.maps.Animation.DROP
 	});
-
-		//creating the new information window and setting it up
-	// var infowindow = new google.maps.InfoWindow({
-	// 	content: venueAddress,
-	// 	position: myLatlng
-	// });
-
- //   		//if the user clicks on the marker, show him the address
- //    google.maps.event.addListener(marker, 'click', function(event) {
-	// 		//infowindow.setContent(venueAddress);
-	// 		infowindow.open(map, marker);
-	// });
 };
 
 app.controller('NavbarCtrl', function($scope) {
-  $scope.hMain = "Midterm Project";
-  $scope.hOne = "App";
-  $scope.hTwo = "Github";
-  $scope.hThree = "Doc";
-  $scope.hLeft = "by " + name;
+
+  	$scope.hMain = "Midterm Project";
+  	$scope.hOne = "App";
+  	$scope.hTwo = "Github";
+  	$scope.hThree = "Doc";
+  	$scope.githubLink = "https://github.com/DalerAsrorov";
+  	$scope.name = name;
 });
 
-app.controller('EventsSearchCtrl', function($scope, Events, Location){
+app.controller('EventsSearchCtrl', function($scope, $sanitize, Events, Location){
 	  Events.search(artist).then(function(events) {
       	$scope.events = events;
       //	console.log(events.event);
