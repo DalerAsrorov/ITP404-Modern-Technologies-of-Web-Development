@@ -1,0 +1,19 @@
+.loading {
+	background-color: yellow;
+	padding: 10px;
+}
+
+.song {
+	border-bottom: 1px solid black;
+	background: white;
+	padding: 20px;
+}
+
+.song img {
+	float: left;
+	margin-right: 20px;
+}
+
+.song h4 {
+	margin-top: 0;
+}

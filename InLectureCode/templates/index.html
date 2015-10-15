@@ -1,0 +1,50 @@
+<form class="form-inline" ng-submit="vm.search()">
+		<div class="form-group">
+			<div class="input-group">
+				<input type="search" ng-model="vm.artistSearch" class="form-control" placeholder="Artist">
+			</div>
+		</div>
+		<input type="submit" class="btn btn-primary">
+	</form>
+
+	<div class="row">
+		<div class="col-md-8">
+			<h4>Songs</h4>
+			<div>
+				<!-- price breakdown here -->
+			</div>
+			<div>
+				<p>Please make a search</p>
+				<div>
+					<p ng-if="vm.loading" class="loading">Loading ...</p>
+					<div ng-repeat="song in vm.songs" class="song">
+						<img ng-src="{{song.artworkUrl60}}">
+						<h4>{{song.trackName}}</h4>
+						<p>Artist: {{song.artistName}}</p>
+						<button ng-if="song.favorited" ng-click="vm.favoriteSong(song)">Favorite</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<h4>Previous Searches</h4>
+			<div>
+				<p ng-if="!vm.previousSearches">No previous searches</p>
+				<ul>
+					<li ng-repeat="previousSearch in vm.previousSearches">
+						{{ previousSearch }}
+					</li>
+				</ul>
+			</div>
+
+			<h4>Favorite Songs</h4>
+			<div>
+				<p ng-if="!vm.favorites.length">No favorited songs</p>
+				<ul>
+					<li ng-repeat="favorite in vm.favorites">
+						{{favorite.trackName}} by {{favorite.artistName}}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
