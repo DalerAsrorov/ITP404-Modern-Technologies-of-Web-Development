@@ -108,3 +108,39 @@ html {
 	margin: 0 auto;
 	text-align: center;
 }
+
+.green {
+	color: #7ECDAF;
+	background: #3D648A;
+}
+
+.orange {
+	color: orange;
+	background: #9900FF;
+}
+
+.red {
+	color: red;
+	background: #164069;
+}
+
+.blue {
+	color: blue;
+	background: lightblue;
+}
+
+.lightblue {
+	color: lightblue;
+}
+
+.purple {
+	color: #E1B0FF;
+	background: #520029;
+}
+
+
+
+
+
+
+

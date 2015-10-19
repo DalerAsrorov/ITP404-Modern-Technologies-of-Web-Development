@@ -31,7 +31,7 @@
 				<ul class="list-group">
 					<div id="artists">
 						<ul>
-							<li ng-repeat="artist in artists" ng-cloak>
+							<li ng-repeat="artist in artists" class="list-group-item" ng-cloak>
 								<a href id="{{artist.id}}" ng-click="fetchSongs(artist.id)">{{ artist.artistName }}</a>
 							</li>
 						</ul>
@@ -44,7 +44,7 @@
 				<div id="songs">
 				<div class="message" ng-if="!songs"> {{ noSongsMessage }} </div>	
 					<ul>
-						<li ng-repeat="song in songs" ng-if="song.artistId === idArtist">
+						<li ng-class="{'red': song.artistId === 1, 'green': song.artistId % 2 === 0, 'orange': song.artistId % 3 === 0, 'purple': song.artistId % 5 === 0, 'blue': song.artistId > 10}"  ng-repeat="song in songs" class="list-group-item" ng-if="song.artistId === idArtist">
 							{{ song.title }}
 						</li>
 

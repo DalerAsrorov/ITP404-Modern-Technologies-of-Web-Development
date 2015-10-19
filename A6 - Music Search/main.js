@@ -28,7 +28,6 @@ $scope.fetchSongs= function(artistId) {
         $log.error('Couldn\'t fetch songs', errorList);
       }
     );
-
   }
 
   })
