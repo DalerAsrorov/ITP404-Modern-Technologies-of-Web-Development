@@ -47,19 +47,14 @@
 						<li ng-class="{'red': song.artistId === 1, 'green': song.artistId % 2 === 0, 'orange': song.artistId % 3 === 0, 'purple': song.artistId % 5 === 0, 'blue': song.artistId > 10}"  ng-repeat="song in songs" class="list-group-item" ng-if="song.artistId === idArtist">
 							{{ song.title }}
 						</li>
-
 					</ul>
-
 				</div>
 			</div>
 		</div>
-
 	</div>
-
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
 	<script src="main.js"></script>
 </body>
 </html>

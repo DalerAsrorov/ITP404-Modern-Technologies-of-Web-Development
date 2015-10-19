@@ -1,5 +1,5 @@
 angular
-  .module('music', ['ngRoute'])
+  .module('music', [])
   .controller('MusicController', function($scope, $log, Artist, Song){
 
   $scope.noSongsMessage = "Plesae select an artist."  
