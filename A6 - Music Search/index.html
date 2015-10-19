@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="music">
+<head>
+  	<title>Assignment 5 - AJAX and Promises</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    	<div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="header-left pull-left">
+                	<a class="navbar-brand" href="index.html">Music Library</a>         		
+                </div>
+        </div> 
+         <div class="pull-right right-header">
+ 			<h5><a href="https://github.com/DalerAsrorov" target="__blank" class="link-n">by Daler Asrorov</a></h2>
+ 		</div>
+      
+    </nav>
+	<div class="container" ng-controller="MusicController" ng-cloak>
+		<div class="row">
+			<div class="col-lg-5 left-side">
+				<div class="headers">Artists</div>
+				<hr style="border-top: 1px solid lightgray;">
+				<ul class="list-group">
+					<div id="artists">
+						<ul>
+							<li ng-repeat="artist in artists" ng-cloak>
+								<a href id="{{artist.id}}" ng-click="fetchSongs(artist.id)">{{ artist.artistName }}</a>
+							</li>
+						</ul>
+					</div>
+				</ul>	
+			</div>
+			<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 right-side"> 
+				<div class="headers">Songs</div>
+				<hr>
+				<div id="songs">
+				<div class="message" ng-if="!songs"> {{ noSongsMessage }} </div>	
+					<ul>
+						<li ng-repeat="song in songs" ng-if="song.artistId === idArtist">
+							{{ song.title }}
+						</li>
+
+					</ul>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>
