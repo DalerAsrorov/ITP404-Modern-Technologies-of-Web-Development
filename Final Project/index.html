@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>iTunes Search</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div class="container">
+	<div class="page-header">
+		<h1>iTunes Search</h1>
+	</div>
+	<ul>
+		<li>
+			<a href="#/"> Home</a>
+			
+		</li>
+		<li>
+			<a href="#/artists"> Artists </a>
+		</li>
+	</ul>
+
+	<ng-view></ng-view>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+<script src="js/main.js"></script>
+<script src="js/controllers/songs-search.js"></script>
+<script src="js/controllers/artists.js"> </script>
+<script src="js/controllers/artist.js"> </script>
+<script src="js/services/itunes.js"> </script>
+<script src="js/services/artist.js"></script>
+
+</body>
+</html>
