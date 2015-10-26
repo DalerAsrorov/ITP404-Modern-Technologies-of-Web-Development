@@ -1,5 +1,5 @@
 html, body {
-	margin: 0; padding: 0; 
+	margin: 0; padding: 0;
 
 	background: #25374A;
 }
@@ -43,8 +43,8 @@ html {
 }
 
 .headers {
-	width: 100%; 
-	font-size: 50px; 
+	width: 100%;
+	font-size: 50px;
 	padding: 0 10px;
 }
 
@@ -77,7 +77,7 @@ html {
 .left-side {
 	background:#E9EBED;
 	border-radius: 15px 0px 0px 15px;
-	
+
 }
 .right-side {
 	border-radius: 0px 0px 0px 0px;
@@ -98,4 +98,10 @@ html {
     border-radius: 10px;
     background-color: rgba(0,0,0,.5);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.md-toolbar-tools h1 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: inherit;
 }
