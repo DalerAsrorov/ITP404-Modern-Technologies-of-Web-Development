@@ -4,11 +4,14 @@ angular
     var vm = this;
 
     //adding favorites
+    vm.showCaption = true;
     vm.favorites = [];
     vm.previousSearches = [];
 
+
     vm.search = function() {
       console.log('searching...', vm.artistSearch);
+      vm.showCaption = false;
       vm.loading = true;
       vm.previousSearches.push(vm.artistSearch);
 

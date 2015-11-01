@@ -36,11 +36,9 @@ angular
 
         calculateStars(scope.rating);
 
-        scope.rate = function(value) {
-          console.log(value);
-          calculateStars(value);
-          scope.rating = value;
-          scope.action();
+        scope.addToFavorite = function(album) {
+          console.log(album);
+          scope.click();
         };
       }
     };

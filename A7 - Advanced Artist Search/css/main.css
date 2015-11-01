@@ -189,7 +189,7 @@ address {
 }
 
 .album-list-box a {
-	font-weight: 600;
+	font-weight: 500;
 
 }
 
@@ -218,6 +218,14 @@ address {
 	margin-top: -2px;
 }
 
+.caption {
+	text-align: center;
+  font-style: italic;
+  color: rgba(157, 159, 159, 0.27);
+	font-weight: 300;
+	margin-top: 30px;
+}
+
 .loading {
 	float: none;
 	display: block;
@@ -231,4 +239,15 @@ address {
 	top: 200px;
 	right: 145px;
 	border-radius: 5px;
+}
+
+.favorite-button {
+	margin-top: -2px;
+	height: 25px;
+	line-height: 0.5;
+}
+
+.artist-name-hader {
+	font-weight: 600;
+	font-size: 16px;
 }
