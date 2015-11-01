@@ -7,25 +7,22 @@ angular
       vm.alreadyFavoritedNotice = false;
 
       vm.goBack = function() {
-          $location.path('/search');
+            $location.path('/search');
       }
 
       vm.favorite = function(album) {
 
         if (album.favorited === true){
-          vm.alreadyFavoritedNotice = true;
+            vm.alreadyFavoritedNotice = true;
         }
         else {
-          vm.alreadyFavoritedNotice = false;
-          vm.favorites.push(album);
-          album.favorited = true;
+            vm.alreadyFavoritedNotice = false;
+            vm.favorites.push(album);
+            album.favorited = true;
+            var jsonString = JSON.stringify(album);
+
+            //storing the album in the local storage...
+            localStorage.setItem(album.collectionId, jsonString);
         }
-
-
-        var jsonString = JSON.stringify(album);
-        console.log(vm.favorites);
-
-        //storing the album in the local storage...
-        //localStorage.setItem(album.collectionId, jsonString);
       }
   });
