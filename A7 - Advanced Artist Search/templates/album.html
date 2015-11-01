@@ -7,7 +7,7 @@
   <h4 class="favorites-list-header">Favorite albums
         <button ng-if="vm.favorites.length != 0" class="btn btn-danger clear-list-button" ng-click="vm.clearFavoriteList()">clear</button>
   </h4>
-  <div>
+  <div class="favorites-list-box">
      <p ng-if="!vm.favorites.length" class="no-favoirutes">No favorited songs</p>
      <ul class="favorites-list">
        <li ng-repeat="favorite in vm.favorites">

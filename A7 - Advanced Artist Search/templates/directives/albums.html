@@ -10,7 +10,10 @@
             <span class="glyphicon glyphicon-cd"></span> Album name: <span class="badge unique-badge">{{ album.collectionName }}</span>
         </a>
         <a href="#" class="list-group-item img-align">
-          <img ng-src="{{album.artworkUrl100}}" alt="{{album.collectionName}} artwork" class="artwork">
+          <div class="explicit-wrapper pull-left">
+              <span class="glyphicon glyphicon-picture"></span> <span> Artwork: </span>
+          </div>
+          <img ng-src="{{album.artworkUrl100}}" class="artowork-image" alt="{{album.collectionName}} artwork" class="artwork">
         </a>
         <a href="#" class="list-group-item">
             <span class="glyphicon glyphicon-music"></span> Number of tracks: <span class="badge unique-badge">{{ album.trackCount }}</span>
