@@ -13,7 +13,6 @@ angular
       vm.previousSearches.push(vm.artistSearch);
 
       iTunes.search(vm.artistSearch).then(function(artist) {
-      //  console.log(artist[0].artistId);
         vm.artist = artist;
         vm.loading = false;
         vm.artistSearch = '';
