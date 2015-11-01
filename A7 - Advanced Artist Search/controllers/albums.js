@@ -3,14 +3,29 @@ angular
   .controller('AlbumController', function(albums) {
       var vm = this;
       vm.albums = albums;
-      // vm.stampImgSrc = "img/explicit-stamp.png";
+      vm.favorites = [];
+      vm.alreadyFavoritedNotice = false;
 
       vm.goBack = function() {
           $location.path('/search');
       }
 
       vm.favorite = function(album) {
-        console.log(JSON.parse(album))
-         //localStorage.setItem(album.collectionId, data.value);
+
+        if (album.favorited === true){
+          vm.alreadyFavoritedNotice = true;
+        }
+        else {
+          vm.alreadyFavoritedNotice = false;
+          vm.favorites.push(album);
+          album.favorited = true;
+        }
+
+
+        var jsonString = JSON.stringify(album);
+        console.log(vm.favorites);
+
+        //storing the album in the local storage...
+        //localStorage.setItem(album.collectionId, jsonString);
       }
   });

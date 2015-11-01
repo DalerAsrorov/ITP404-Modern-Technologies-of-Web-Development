@@ -251,3 +251,38 @@ address {
 	font-weight: 600;
 	font-size: 16px;
 }
+
+.favorites-list {
+	padding: 0;
+	list-style-type: none;
+	margin-bottom: 0;
+}
+
+.favorites-list li {
+	background-color: rgba(217, 237, 247, 0.72);
+	border: 1px solid rgba(165, 165, 165, 0.39);
+	padding: 5px;
+}
+.favorite-list li:last-child {
+	border-radius: 0 0 5px 5px;
+
+}
+
+.favorites-list-header {
+	background: lightblue;
+	margin:0;
+	padding: 10px;
+	border-radius: 10px 10px 0 0;
+}
+
+
+li.alreadyFavoritedNotice {
+	color: red;
+	font-weight: 200;
+	padding: 5px;
+	border: 0;
+	background: none;
+	margin-top: 10px;
+	font-style: italic;
+	clear: both;
+}
