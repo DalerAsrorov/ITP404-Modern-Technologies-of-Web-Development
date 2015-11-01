@@ -5,10 +5,10 @@
 
 <div class="favorites">
   <h4 class="favorites-list-header">Favorite albums
-        <button ng-if="vm.favorites.length != 0" class="btn btn-danger" ng-click="vm.clearFavoriteList()">clear</button>
+        <button ng-if="vm.favorites.length != 0" class="btn btn-danger clear-list-button" ng-click="vm.clearFavoriteList()">clear</button>
   </h4>
   <div>
-     <p ng-if="!vm.favorites.length">No favorited songs</p>
+     <p ng-if="!vm.favorites.length" class="no-favoirutes">No favorited songs</p>
      <ul class="favorites-list">
        <li ng-repeat="favorite in vm.favorites">
          {{favorite.collectionName}} by {{favorite.artistName}}

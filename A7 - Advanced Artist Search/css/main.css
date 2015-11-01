@@ -263,9 +263,10 @@ address {
 	border: 1px solid rgba(165, 165, 165, 0.39);
 	padding: 5px;
 }
-.favorite-list li:last-child {
-	border-radius: 0 0 5px 5px;
 
+.favorite-list li:nth-last-child(1) {
+	padding: 5px;
+	border-radius: 0 0 5px 5px;
 }
 
 .favorites-list-header {
@@ -273,6 +274,19 @@ address {
 	margin:0;
 	padding: 10px;
 	border-radius: 10px 10px 0 0;
+}
+
+.no-favoirutes {
+	background: rgba(217, 237, 247, 0.72);
+	padding: 5px;
+}
+
+.clear-list-button {
+	height: 23px;
+	font-size: 12px;
+	line-height: 0.4;
+	position: relative;
+	left: 7px;
 }
 
 

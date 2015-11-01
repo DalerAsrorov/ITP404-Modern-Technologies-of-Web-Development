@@ -6,15 +6,12 @@ angular
       vm.favorites = [];
       vm.alreadyFavoritedNotice = false;
 
-      //localStorage.clear(); // --> if we need to clear the local storage
-
       // getting data back from local storage
       // to store the favorites list
       // with previously favorited songs (experimental thing...)
       for(var i=0, len=localStorage.length; i<len; i++) {
           var key = localStorage.key(i);
           var value = JSON.parse(localStorage[key]);
-          console.log(value);
           vm.favorites.push(value);
       }
 

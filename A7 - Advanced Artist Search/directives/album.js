@@ -6,8 +6,6 @@ angular
       templateUrl: '/templates/directives/albums.html',
       // isolate scope
       scope: {
-        // rating: '=',
-        // action: '&'
         click: '&',
         album: '='
       },
@@ -18,6 +16,7 @@ angular
         scope.addToFavorite = function() {
           scope.click();
         };
+        scope.delete
       }
     };
   });
