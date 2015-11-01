@@ -1,0 +1,22 @@
+<form class="form-inline" ng-submit="vm.search()">
+  <div class="container">
+	<div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div id="imaginary_container">
+                <div class="input-group stylish-input-group search-input">
+                    <input type="search" ng-model="vm.artistSearch" class="form-control artist-search" placeholder="Artist">
+                    <span class="input-group-addon">
+                        <button type="submit" class="search-icon">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+	   </div>
+  </div>
+</form>
+
+<div class="row">
+    <img src="https://www.yugma.com/images/loading-animation-7.gif" ng-if="vm.loading" class="loading">
+</div>

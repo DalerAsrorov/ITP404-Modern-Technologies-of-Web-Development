@@ -1,20 +1,30 @@
 angular
-  .module('nike', ['ngRoute'])
+  .module('itunes', ['ngRoute'])
   .config(function($routeProvider) {
     $routeProvider
-      .when('/products/3', {
-        templateUrl: '/templates/products.html',
-        controller: 'ProductController',
+      .when('/search', {
+        templateUrl: '/templates/index.html',
+        controller: 'SongsSearchController',
+        controllerAs: 'vm'
+      })
+      .when('/artists/:artistId', {
+        templateUrl: '/templates/album.html',
+        controller: 'AlbumController',
         controllerAs: 'vm',
         resolve: {
-          product: function() {
-            return {
-              id: 3,
-              name: 'NIKE SB ERIC KOSTON 2 MAX',
-              price: 89.97,
-              rating: 4
-            };
+          albums: function($route, $http, $location) {
+            var routeId = $route.current.pathParams.artistId;
+            var url = 'https://itunes.apple.com/lookup?id=' + routeId + '&entity=album' + '&callback=JSON_CALLBACK';
+            return $http.jsonp(url).then(function(response) {
+            //  console.log(response);
+              return response.data.results;
+            }, function() {
+              $location.path('/search');
+            });
           }
         }
+      })
+      .otherwise({
+        redirectTo: '/search'
       });
-    });
+  });
