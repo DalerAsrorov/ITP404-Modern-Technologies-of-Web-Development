@@ -231,4 +231,5 @@ address {
 	position: fixed;
 	top: 200px;
 	right: 145px;
+	border-radius: 5px;
 }
