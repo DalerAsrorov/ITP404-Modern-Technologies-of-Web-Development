@@ -3,9 +3,7 @@ angular
   .controller('SongsSearchController', function(iTunes, $location) {
     var vm = this;
 
-    //adding favorites
     vm.showCaption = true;
-    vm.favorites = [];
     vm.previousSearches = [];
 
 
@@ -21,10 +19,5 @@ angular
         vm.artistSearch = '';
         $location.path('/artists/' + artist[0].artistId);
       });
-    };
-
-    vm.favoriteSong = function(song) {
-      vm.favorites.push(song);
-      song.favorited = true;
     };
   });
