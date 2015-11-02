@@ -24,7 +24,7 @@ angular
 
       vm.favorite = function(album) {
         if (album.favorited === true){
-                   vm.alreadyFavoritedNotice = true;
+          vm.alreadyFavoritedNotice = true;
         }
         else {
           vm.alreadyFavoritedNotice = false;
