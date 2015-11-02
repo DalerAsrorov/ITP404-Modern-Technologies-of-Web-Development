@@ -15,10 +15,6 @@ angular
           vm.favorites.push(value);
       }
 
-      vm.goBack = function() {
-          $location.path('/search');
-      }
-
       // clears out the local storage and
       // the favorites array...
       vm.clearFavoriteList = function() {
