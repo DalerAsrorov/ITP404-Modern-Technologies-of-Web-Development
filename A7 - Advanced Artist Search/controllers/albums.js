@@ -6,9 +6,9 @@ angular
       vm.favorites = [];
       vm.alreadyFavoritedNotice = false;
 
-      // getting data back from local storage
-      // to store the favorites list
-      // with previously favorited songs (experimental thing...)
+      /* getting data back from local storage
+         to store the favorites list
+         with previously favorited songs (experimental thing...) */
       for(var i=0, len=localStorage.length; i<len; i++) {
           var key = localStorage.key(i);
           var value = JSON.parse(localStorage[key]);
@@ -19,15 +19,16 @@ angular
           $location.path('/search');
       }
 
+      // clears out the local storage and
+      // the favorites array...
       vm.clearFavoriteList = function() {
         localStorage.clear();
         vm.favorites = [];
-
       }
 
       vm.favorite = function(album) {
         if (album.favorited === true){
-            vm.alreadyFavoritedNotice = true;
+                   vm.alreadyFavoritedNotice = true;
         }
         else {
           vm.alreadyFavoritedNotice = false;
@@ -35,7 +36,7 @@ angular
           album.favorited = true;
           var jsonString = JSON.stringify(album);
 
-          // **** storing the album in the local storage...
+          // **** storing the album in the local storage ****
           localStorage.setItem(album.collectionId, jsonString);
         }
       }
