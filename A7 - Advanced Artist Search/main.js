@@ -16,7 +16,6 @@ angular
             var routeId = $route.current.pathParams.artistId;
             var url = 'https://itunes.apple.com/lookup?id=' + routeId + '&entity=album' + '&callback=JSON_CALLBACK';
             return $http.jsonp(url).then(function(response) {
-            //  console.log(response);
               return response.data.results;
             }, function() {
               $location.path('/search');
