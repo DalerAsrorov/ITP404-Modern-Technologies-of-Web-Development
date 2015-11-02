@@ -4,10 +4,11 @@ var app = express();
 
 app.use(express.static(__dirname + '/public'));
 
+// You can test the following route with
+// url: http://localhost:3000/spotify/artists/[name any artist] without the square brackets
+// For example, it can be: http://localhost:3000/spotify/artists/green day
 app.get('/spotify/artists/:artist?', function(req, res) {
   var artist;
-
-  //example url: http://localhost:3000/spotify/artists/green day
 
   if (req.params.artist) {
     artist = req.params.artist;
@@ -20,10 +21,11 @@ app.get('/spotify/artists/:artist?', function(req, res) {
   });
 });
 
+// You can test the following route with
+// url: http://localhost:3000/spotify/tracks/[name any artist] without the square brackets
+// For example, it can be: http://localhost:3000/spotify/tracks/abba
 app.get('/spotify/tracks/:artist?', function(req, res) {
   var artist;
-
-  //example url: http://localhost:3000/spotify/tracks/green day
 
   if (req.params.artist) {
     artist = req.params.artist;
@@ -37,6 +39,7 @@ app.get('/spotify/tracks/:artist?', function(req, res) {
   });
 });
 
+// listenning on the port method...
 app.listen(3000, function() {
 	console.log('Listening on port 3000');
 });
