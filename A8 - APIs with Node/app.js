@@ -15,6 +15,7 @@ app.get('/spotify/artists/:artist?', function(req, res) {
   } else {
     //artist = req.query.artist;
     artist = 'linkin park';
+    //artist could be 
   }
   spotify.getArtist(artist, function(albums) {
     res.json(albums);
