@@ -38,6 +38,15 @@ describe("orders service", function() {
       });
   }));
 
+  // findAll() test
+  it("findAll() should return an array of all orders", function() {
+  orders.findAll().then(function(data) {
+    expect(data.length).toEqual(6);
+  });
+    $httpBackend.flush();
+  });
+
+  // getTotalSpent() test
   it("getTotalSpent() should resolve with a single number that is the sum of the total property for all orders.", function() {
     orders.getTotalSpent().then(function(total) {
       expect(total).toEqual(174);
@@ -45,4 +54,4 @@ describe("orders service", function() {
     $httpBackend.flush();
   });
 
-});
+}); // end of describe for orders service
