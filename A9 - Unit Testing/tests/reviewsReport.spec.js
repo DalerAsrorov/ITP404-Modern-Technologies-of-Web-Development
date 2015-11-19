@@ -1,4 +1,7 @@
-// test case 1
+
+describe("reviewsReport", function() {
+
+  // test case 1
 var reviewsReportA = new ReviewsReport("Review A", [
   {
        title: 'whatever title you want',
@@ -8,7 +11,7 @@ var reviewsReportA = new ReviewsReport("Review A", [
    },
    {
        title: 'whatever title you want',
-       stars: 3,
+       stars: 2,
        cost: 1,
        description: ''
    },
@@ -155,7 +158,6 @@ var reviewsReportG = new ReviewsReport("Review G", [
     }
 ]);
 
-describe("reviewsReport", function() {
   // ***test assertion for getAverageRating()***
   it("getAverageRating() should return the average of n movie ratings", function() {
     // Arrange, Act
