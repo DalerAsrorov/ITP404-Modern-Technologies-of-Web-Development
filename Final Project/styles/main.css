@@ -28,7 +28,7 @@ body {
   border-radius: 50%;
   padding: 40px;
   background: rgba(11, 28, 48, 0.7);
-  border: 1px solid #555566; }
+  border: 1px solid #1A2E46; }
 
 .md-toolbar-tools h1 {
   font-size: inherit;
@@ -48,9 +48,10 @@ md-input-container:not(.md-input-has-value) input:not(:focus).input-style {
   color: white; }
 
 md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input.input-style {
-  border-color: #555566;
+  border-color: #1A2E46;
   color: white;
-  font-size: 20px; }
+  font-size: 20px;
+  font-weight: 600; }
 
 md-input-container.md-default-theme .md-input {
   color: white;

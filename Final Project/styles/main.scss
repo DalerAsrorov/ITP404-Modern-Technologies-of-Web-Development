@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Dosis);
 
 $theme-color: #0B1C30;
-$border-color: #555566;
+$border-color: #1A2E46;
 $font-color: #80dfff;
 
 body {
@@ -65,6 +65,7 @@ md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-
   border-color: $border-color;
   color: white;
   font-size: 20px;
+  font-weight: 600;
 }
 
 md-input-container.md-default-theme .md-input {
