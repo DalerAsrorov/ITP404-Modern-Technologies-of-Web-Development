@@ -26,7 +26,7 @@
 //       });
 //   });
 angular
-  .module('app', ['ngRoute','ngMaterial', 'ngMdIcons'])
+  .module('app', ['ngRoute','ngMaterial', 'ngMdIcons', 'ui.bootstrap'])
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {

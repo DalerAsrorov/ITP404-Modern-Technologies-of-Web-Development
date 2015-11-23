@@ -1,9 +1,79 @@
 $theme-color: #0B1C30;
 $border-color: #1A2E46;
 $font-color: #80dfff;
+$font-weight: 700;
+$default-font-size: 18px;
+$lightblue-color: #5F9EA0;
+$red-color: #9f6260;
+$blue-color: #607d96;
+$green-color: #9d9f60;
 
 #clash {
   height: 100%;
   background: $theme-color;
   color: white;
+  font-size: $default-font-size;
+}
+
+#carousel .cloud9-item, #buttons button {
+  cursor: pointer;
+}
+
+#options-section {
+  margin-top: 20px;
+}
+
+.options-box {
+  margin: 0 5px;
+}
+
+//changing the color of the box-shadow
+// to white color
+.md-whiteframe-z5.options-box {
+  box-shadow: 0 8px 10px -5px rgba(255,255,255,.2),0 16px 24px 2px rgba(255,255,255,.14),0 6px 30px 5px rgba(255,255,255,.12);
+  padding: 0;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+.carousel {
+    width: 100%;
+}
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img {
+  margin:0;
+  width: 100%;
+  height: 200px;
+}
+
+.carousel-indicators {
+  display: none;
+}
+
+.carousel-caption {
+  font-weight: $font-weight;
+  font-size: 20px;
+  margin-bottom: -30px;
+}
+
+.box-artists {
+  background: $lightblue-color;
+}
+.box-albums {
+  background: $red-color;
+}
+.box-songs {
+  background: $blue-color;
+}
+.box-events {
+  background: $green-color;
+}
+
+.box-caption {
+  text-align: center;
+  font-weight: $font-weight;
+  font-style: italic;
 }

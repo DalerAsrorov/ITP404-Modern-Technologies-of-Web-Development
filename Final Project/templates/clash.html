@@ -1,16 +1,64 @@
 <div id="clash">
-	<div id="options-section" layout="row" layout-sm="column">
-		<div flex>
-		    I'm above on mobile, and to the left on larger devices.
-		  </div>
-		<div flex>
-		    I'm below on mobile, and to the right on larger devices.
-		</div>
-		<div flex>
-				I'm above on mobile, and to the left on larger devices.
-			</div>
-		<div flex>
-				I'm below on mobile, and to the right on larger devices.
+	<div class="container">
+		<div id="options-section" layout-padding layout-wrap layout="row" layout-sm="column">
+			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-artists" flex>
+				  <!-- <directive> </directive> -->
+					<uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+			      <uib-slide ng-repeat="slide in slides" active="slide.active">
+							<a href="#">
+								<img ng-src="{{slide.image}}" style="margin:auto;">
+			        	<div class="carousel-caption">
+										Daler
+									</div>
+							</a>
+			      </uib-slide>
+						<div class="box-caption box-artists">Popular Artists</div>
+			    </uib-carousel>
+			</md-whiteframe>
+			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-songs" flex>
+					<!-- <directive> </directive> -->
+					<uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+						<uib-slide ng-repeat="slide in slides" active="slide.active">
+							<a href="#">
+								<img ng-src="{{slide.image}}" style="margin:auto;">
+								<div class="carousel-caption">
+										Daler
+									</div>
+							</a>
+						</uib-slide>
+						<div class="box-caption box-albums">Popular Albums</div>
+					</uib-carousel>
+			</md-whiteframe>
+			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-albums" flex>
+				  <!-- <directive> </directive> -->
+					<!-- <directive> </directive> -->
+					<uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+						<uib-slide ng-repeat="slide in slides" active="slide.active">
+							<a href="#">
+								<img ng-src="{{slide.image}}" style="margin:auto;">
+								<div class="carousel-caption">
+										Daler
+									</div>
+							</a>
+						</uib-slide>
+						<div class="box-caption box-songs">Popular Songs</div>
+					</uib-carousel>
+			</md-whiteframe>
+			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-events" flex>
+					<!-- <directive> </directive> -->
+					<!-- <directive> </directive> -->
+					<uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+						<uib-slide ng-repeat="slide in slides" active="slide.active">
+							<a href="#">
+								<img ng-src="{{slide.image}}" style="margin:auto;">
+								<div class="carousel-caption">
+										Daler
+									</div>
+							</a>
+						</uib-slide>
+						<div class="box-caption box-events">Events Nearby</div>
+					</uib-carousel>
+			</md-whiteframe>
 		</div>
 	</div>
 </div>
