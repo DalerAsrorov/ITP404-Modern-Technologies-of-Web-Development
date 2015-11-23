@@ -7,31 +7,9 @@
     <link rel="stylesheet" href="bower_components/magic/magic.min.css">
     <meta name="viewport" content="initial-scale=1" />
   </head>
-  <body>
-<div layout="column">
-    <div id="input-box" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <form name="userForm" id="userForm" class="col-lg-8">
-            <h3 id="form-title"> MelodyClash </h3>
-            <div layout >
-             <md-input-container flex>
-                <label class="input-label">Email</label>
-                <input ng-model="user.email" class="input-style">
-              </md-input-container>
-            </div>
-            <div layout >
-              <md-input-container flex>
-                <label class="input-label">Favorite Genre</label>
-                <input ng-model="theMax" class="input-style">
-              </md-input-container>
-            </div>
-            <div layout layout-sm="row" class="start-button-div">
-              <md-button class="md-fab md-mini center-div start-button" aria-label="Start app!" id="start-button">
-                <ng-md-icon icon="play_arrow" size="30"></ng-md-icon>
-              </md-button>
-            </div>
-        </form>
-    </div>
-</div>
+<body ng-cloak>
+
+  <div ng-view></div>
 
     <!-- Angular Material Dependencies -->
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
@@ -45,9 +23,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/SVG-Morpheus/0.1.8/svg-morpheus.js"></script>
 		<script src="js/main.js"> </script>
     <script src="js/controllers/maincontroller.js"> </script>
-    <script src="js/controllers/usercontroller.js"> </script>
-
-
-
+    <script src="js/controllers/clashcontroller.js"> </script>
   </body>
 </html>

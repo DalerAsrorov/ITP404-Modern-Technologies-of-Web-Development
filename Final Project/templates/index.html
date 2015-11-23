@@ -1,3 +1,24 @@
-<div>
-	Main page html will be here
+<div layout="column">
+    <div id="input-box" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <form ng-submit="submit()" name="userForm" id="userForm" class="col-lg-8">
+            <h3 id="form-title"> MelodyClash </h3>
+            <div layout >
+             <md-input-container flex>
+                <label class="input-label">Email</label>
+                <input ng-model="user.email" class="input-style">
+              </md-input-container>
+            </div>
+            <div layout >
+              <md-input-container flex>
+                <label class="input-label">Favorite Genre {{hi}}</label>
+                <input ng-model="theMax" class="input-style">
+              </md-input-container>
+            </div>
+            <div layout layout-sm="row" class="start-button-div">
+              <md-button type="submit" id="submit" value="Submit" class="md-fab md-mini center-div start-button" aria-label="Start app!" id="start-button">
+                <ng-md-icon icon="play_arrow" size="30"></ng-md-icon>
+              </md-button>
+            </div>
+        </form>
+    </div>
 </div>
