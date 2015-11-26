@@ -125,6 +125,9 @@ img {
   font-size: 20px;
   margin-bottom: -30px; }
 
+.carousel-caption.album {
+  margin-bottom: -40px; }
+
 .box-artists {
   background: #5F9EA0; }
 
@@ -140,6 +143,11 @@ img {
 .box-caption {
   text-align: center;
   font-weight: 700;
+  font-style: italic; }
+
+.album-artist-caption {
+  color: darkturquoise;
+  font-size: 14px;
   font-style: italic; }
 
 /*# sourceMappingURL=main.css.map */

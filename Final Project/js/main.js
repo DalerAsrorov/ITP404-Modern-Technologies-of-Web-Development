@@ -40,7 +40,6 @@ angular
         resolve: {
           artists: function($route, $http, $location) {
             var genre = $route.current.pathParams.genre;
-            console.log(genre);
             var base = 'http://developer.echonest.com/api/v4/genre/artists?api_key=CHHHMSBTT8PT4XGSA&format=json&results=15&bucket=hotttnesss&name=';
             var url = base + genre + '&callback=JSON_CALLBACK';
 
@@ -50,12 +49,19 @@ angular
               $location.path('/search');
             });
           },
+          genre: function($route, $http, $location) {
+            var genre = $route.current.pathParams.genre;
+            return genre;
+          },
           iTunes: function(iTunes) {
             return iTunes;
           },
           Spotify: function(Spotify) {
             return Spotify;
-          }
+          },
+          SearchGenre: function(SearchGenre) {
+            return SearchGenre;
+          },
         }
       })
       // .when('/artists/:id', {

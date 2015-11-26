@@ -57,6 +57,10 @@ img {
   font-weight: $font-weight;
   font-size: 20px;
   margin-bottom: -30px;
+
+}
+.carousel-caption.album {
+  margin-bottom: -40px;
 }
 
 .box-artists {
@@ -75,5 +79,11 @@ img {
 .box-caption {
   text-align: center;
   font-weight: $font-weight;
+  font-style: italic;
+}
+
+.album-artist-caption {
+  color: darkturquoise;
+  font-size: 14px;
   font-style: italic;
 }

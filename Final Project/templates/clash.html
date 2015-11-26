@@ -4,7 +4,7 @@
 			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-artists" flex>
 				  <!-- <directive> </directive> -->
 					<uib-carousel interval="vm.myInterval" no-wrap="vm.noWrapSlides">
-			      <uib-slide ng-repeat="slide in vm.slides" active="slide.active">
+			      <uib-slide ng-repeat="slide in vm.artistsSlides" active="slide.active">
 							<a href="#">
 								<img ng-src="{{slide.image}}" style="margin:auto;">
 			        	<div class="carousel-caption">
@@ -17,12 +17,13 @@
 			</md-whiteframe>
 			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-songs" flex>
 					<!-- <directive> </directive> -->
-					<uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-						<uib-slide ng-repeat="slide in vm.slides" active="slide.active">
+					<uib-carousel interval="vm.myInterval" no-wrap="vm.albumSlides">
+						<uib-slide ng-repeat="slide in vm.albumSlides" active="slide.active">
 							<a href="#">
 								<img ng-src="{{slide.image}}" style="margin:auto;">
-								<div class="carousel-caption">
-										Daler
+								<div class="carousel-caption album">
+										<span>{{ slide.album }} </span> <br>
+										<span class="album-artist-caption"> by {{ slide.name }} </span>
 									</div>
 							</a>
 						</uib-slide>
