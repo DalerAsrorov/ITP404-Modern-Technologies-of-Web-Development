@@ -2,6 +2,7 @@ angular
   .module('app')
   .controller('ClashCtrl', function(artists, iTunes, Spotify) {
       var vm = this;
+      var name = "";
       vm.topArtists = artists.artists;
       vm.loading = true;
 
@@ -21,10 +22,12 @@ angular
       // name of the artist taken from API
       // call via Spotify service
       vm.addSlide = function(image, artistName) {
-        var newWidth = 600 + slides.length + 1;
+      //  var newWidth = 600 + slides.length + 1;
         slides.push({
           image: image,
           name: artistName
         });
       };
+
+
   });
