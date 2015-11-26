@@ -30,7 +30,16 @@ angular
               vm.topSongs = topSongsList.data;
               vm.topSongs.forEach(function(song) {
                   Spotify.search(song.artist.name).then(function(artist) {
-                      vm.addSongSlides(artist.items[0].images[0].url, song.artist.name, song.name);
+                      var imageURL = "";
+                      console.log(song.artist.name);
+                      if(artist.items[0] == undefined) {
+                          imageURL = 'http://www.eibn.org/upload/company_directory/logos/default.png';
+                      } else if(artist.items[0].images[0] == undefined) {
+                        imageURL = 'http://www.eibn.org/upload/company_directory/logos/default.png';
+                      } else {
+                        imageURL = artist.items[0].images[0].url;
+                      }
+                      vm.addSongSlides(imageURL, song.artist.name, song.name);
                   });
               });
             });
