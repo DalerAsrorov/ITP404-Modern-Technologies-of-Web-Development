@@ -12,12 +12,16 @@
 									</div>
 							</a>
 			      </uib-slide>
-						<div class="box-caption box-artists">Popular Artists</div>
+						<a href="#" class="caption-links">
+							<md-button class="md-raised box-caption box-artists">
+								Popular Artists
+							</md-button>
+						</a>	
 			    </uib-carousel>
 			</md-whiteframe>
 			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-songs" flex>
 					<!-- <directive> </directive> -->
-					<uib-carousel interval="vm.myInterval" no-wrap="vm.albumSlides">
+					<uib-carousel interval="vm.myInterval" no-wrap="vm.noWrapSlides">
 						<uib-slide ng-repeat="slide in vm.albumSlides" active="slide.active">
 							<a href="#">
 								<img ng-src="{{slide.image}}" style="margin:auto;">
@@ -27,23 +31,31 @@
 									</div>
 							</a>
 						</uib-slide>
-						<div class="box-caption box-albums">Popular Albums</div>
+						<a href="#" class="caption-links">
+							<md-button class="md-raised box-caption box-albums">
+								Popular Albums
+							</md-button>
+						</a>
 					</uib-carousel>
 			</md-whiteframe>
 			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-albums" flex>
 				  <!-- <directive> </directive> -->
 					<!-- <directive> </directive> -->
-					<uib-carousel interval="vm.myInterval" no-wrap="noWrapSlides">
+					<uib-carousel interval="vm.myInterval" no-wrap="vm.noWrapSlides">
 						<uib-slide ng-repeat="slide in vm.songSlides" active="slide.active">
 							<a href="#">
 								<img ng-src="{{slide.image}}" style="margin:auto;">
-								<div class="carousel-caption">
+								<div class="carousel-caption songs">
 									<span>{{ slide.song }} </span> <br>
 									<span class="album-artist-caption"> by {{ slide.name }} </span>
 								</div>
 							</a>
 						</uib-slide>
-						<div class="box-caption box-songs">Popular Songs</div>
+						<a href="#" class="caption-links">
+							<md-button class="md-raised box-caption box-songs">
+									Popular Songs
+							</md-button>
+						</a>
 					</uib-carousel>
 			</md-whiteframe>
 			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-events" flex>

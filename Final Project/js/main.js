@@ -61,7 +61,17 @@ angular
           },
           SearchGenre: function(SearchGenre) {
             return SearchGenre;
-          },
+          }
+        }
+      })
+      .when('/clash/:genre/:artist', {
+        templateUrl: '/templates/artist.html',
+        controller: 'ArtistCtrl',
+        controllerAs: 'vm',
+        resolve: {
+          artist: function() {
+
+          }
         }
       })
       // .when('/artists/:id', {

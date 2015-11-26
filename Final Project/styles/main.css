@@ -123,10 +123,13 @@ img {
 .carousel-caption {
   font-weight: 700;
   font-size: 20px;
-  margin-bottom: -30px; }
+  height: 48px; }
 
 .carousel-caption.album {
-  margin-bottom: -40px; }
+  margin-bottom: 57px; }
+
+.carousel-caption.songs {
+  margin-bottom: 57px; }
 
 .box-artists {
   background: #5F9EA0; }
@@ -149,5 +152,35 @@ img {
   color: darkturquoise;
   font-size: 14px;
   font-style: italic; }
+
+a.caption-links {
+  text-decoration: none;
+  color: white; }
+  a.caption-links:hover {
+    color: white;
+    background: green; }
+    a.caption-links:hover .box-albums {
+      background: green; }
+
+.md-button.md-raised:not([disabled]).box-caption {
+  margin: 0;
+  width: 100%;
+  border-radius: 0;
+  color: white; }
+
+.md-button.md-raised:not([disabled]).box-songs {
+  background: #607d96; }
+  .md-button.md-raised:not([disabled]).box-songs:hover {
+    background: #7d96ac; }
+
+.md-button.md-raised:not([disabled]).box-albums {
+  background: #9f6260; }
+  .md-button.md-raised:not([disabled]).box-albums:hover {
+    background: #b28180; }
+
+.md-button.md-raised:not([disabled]).box-artists {
+  background: #5F9EA0; }
+  .md-button.md-raised:not([disabled]).box-artists:hover {
+    background: #7fb1b3; }
 
 /*# sourceMappingURL=main.css.map */

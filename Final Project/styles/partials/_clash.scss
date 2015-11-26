@@ -56,11 +56,14 @@ img {
 .carousel-caption {
   font-weight: $font-weight;
   font-size: 20px;
-  margin-bottom: -30px;
+  height: 48px;
 
 }
 .carousel-caption.album {
-  margin-bottom: -40px;
+  margin-bottom: 57px;
+}
+.carousel-caption.songs {
+    margin-bottom: 57px;
 }
 
 .box-artists {
@@ -86,4 +89,48 @@ img {
   color: darkturquoise;
   font-size: 14px;
   font-style: italic;
+}
+
+a.caption-links {
+      text-decoration: none;
+      color: white;
+
+    &:hover {
+      color: white;
+      background: green;
+
+      .box-albums{
+        background: green;
+      }
+    }
+  }
+
+.md-button.md-raised:not([disabled]).box-caption{
+  margin: 0;
+  width: 100%;
+  border-radius: 0;
+  color: white;
+
+}
+
+.md-button.md-raised:not([disabled]).box-songs {
+  background: $blue-color;
+
+  &:hover {
+    background: lighten($blue-color, 10%);
+  }
+}
+.md-button.md-raised:not([disabled]).box-albums {
+  background: $red-color;
+
+  &:hover {
+    background: lighten($red-color, 10%);
+  }
+}
+.md-button.md-raised:not([disabled]).box-artists {
+  background: $lightblue-color;
+
+  &:hover {
+    background: lighten($lightblue-color, 10%);
+  }
 }

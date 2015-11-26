@@ -35,7 +35,7 @@ angular
               return response.data;
           })
           .error(function(data, status, headers) {
-              // log error
+              console.log("error loading the top tracks by genre");
           });
 
       }
