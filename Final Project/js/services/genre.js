@@ -26,6 +26,18 @@ angular
             }, function errorCallback(response) {
               console.log("Error loading artists from spotify: " + response);
           });
+      },
+      listSongs: function(genreId) {
+        var url = 'http://api.rhapsody.com/v1/genres/' + genreId + '/tracks/top?apikey=FF3m3Ux0fES32FFvc08QMY1xRH6XGOgn&callback=JSON_CALLBACK';
+
+        return $http.get(url)
+          .success(function(response) {
+              return response.data;
+          })
+          .error(function(data, status, headers) {
+              // log error
+          });
+
       }
     }
   });

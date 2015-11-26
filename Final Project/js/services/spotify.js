@@ -4,7 +4,6 @@ angular
     return {
       search: function(artist) {
         artist = removeThe(artist);
-        console.log(artist);
 
         var url = 'https://api.spotify.com/v1/search?q=' + artist + '&type=artist' + '&callback=JSON_CALLBACK';
 
@@ -21,7 +20,6 @@ angular
             method: 'GET',
             url: url
           }).then(function successCallback(response) {
-            //  console.log(response.data.artists);
               return response.data.artists;
             }, function errorCallback(response) {
               console.log("Error loading artists from spotify: " + response);

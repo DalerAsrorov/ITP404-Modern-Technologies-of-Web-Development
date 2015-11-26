@@ -6,6 +6,7 @@ angular
       vm.genre = genre;
       vm.topArtists = artists.artists;
       vm.topAlbums;
+      vm.topSongs;
       vm.loading = true;
 
       vm.topArtists.forEach(function(selectedArtist) {
@@ -24,6 +25,14 @@ angular
                 vm.topAlbums.forEach(function(album) {
                   vm.addAlbumsSlide (album.images[0].url, album.artist.name, album.name);
                 });
+            });
+            SearchGenre.listSongs(genre.id).then(function(topSongsList) {
+              vm.topSongs = topSongsList.data;
+              vm.topSongs.forEach(function(song) {
+                  Spotify.search(song.artist.name).then(function(artist) {
+                      vm.addSongSlides(artist.items[0].images[0].url, song.artist.name, song.name);
+                  });
+              });
             });
          }
        });
@@ -50,6 +59,15 @@ angular
           image: image,
           name: artistName,
           album: albumName
+        });
+      }
+
+      var songSlides = vm.songSlides = [];
+      vm.addSongSlides = function(image, artistName, songName) {
+        songSlides.push({
+          image: image,
+          name: artistName,
+          song: songName
         });
       }
 

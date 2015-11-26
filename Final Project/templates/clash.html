@@ -33,13 +33,14 @@
 			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-albums" flex>
 				  <!-- <directive> </directive> -->
 					<!-- <directive> </directive> -->
-					<uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-						<uib-slide ng-repeat="slide in vm.slides" active="slide.active">
+					<uib-carousel interval="vm.myInterval" no-wrap="noWrapSlides">
+						<uib-slide ng-repeat="slide in vm.songSlides" active="slide.active">
 							<a href="#">
 								<img ng-src="{{slide.image}}" style="margin:auto;">
 								<div class="carousel-caption">
-										Daler
-									</div>
+									<span>{{ slide.song }} </span> <br>
+									<span class="album-artist-caption"> by {{ slide.name }} </span>
+								</div>
 							</a>
 						</uib-slide>
 						<div class="box-caption box-songs">Popular Songs</div>
