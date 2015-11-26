@@ -3,12 +3,12 @@
 		<div id="options-section" layout-padding layout-wrap layout="row" layout-sm="column">
 			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-artists" flex>
 				  <!-- <directive> </directive> -->
-					<uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-			      <uib-slide ng-repeat="slide in slides" active="slide.active">
+					<uib-carousel interval="vm.myInterval" no-wrap="vm.noWrapSlides">
+			      <uib-slide ng-repeat="slide in vm.slides" active="slide.active">
 							<a href="#">
 								<img ng-src="{{slide.image}}" style="margin:auto;">
 			        	<div class="carousel-caption">
-										Daler
+									{{ slide.name }}
 									</div>
 							</a>
 			      </uib-slide>
@@ -18,7 +18,7 @@
 			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-songs" flex>
 					<!-- <directive> </directive> -->
 					<uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-						<uib-slide ng-repeat="slide in slides" active="slide.active">
+						<uib-slide ng-repeat="slide in vm.slides" active="slide.active">
 							<a href="#">
 								<img ng-src="{{slide.image}}" style="margin:auto;">
 								<div class="carousel-caption">
@@ -33,7 +33,7 @@
 				  <!-- <directive> </directive> -->
 					<!-- <directive> </directive> -->
 					<uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-						<uib-slide ng-repeat="slide in slides" active="slide.active">
+						<uib-slide ng-repeat="slide in vm.slides" active="slide.active">
 							<a href="#">
 								<img ng-src="{{slide.image}}" style="margin:auto;">
 								<div class="carousel-caption">
@@ -48,7 +48,7 @@
 					<!-- <directive> </directive> -->
 					<!-- <directive> </directive> -->
 					<uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-						<uib-slide ng-repeat="slide in slides" active="slide.active">
+						<uib-slide ng-repeat="slide in vm.slides" active="slide.active">
 							<a href="#">
 								<img ng-src="{{slide.image}}" style="margin:auto;">
 								<div class="carousel-caption">

@@ -1,20 +1,32 @@
 angular
   .module('app')
-  .controller('ClashCtrl', function($scope) {
+  .controller('ClashCtrl', function(artists, iTunes, Spotify) {
+      var vm = this;
+      vm.topArtists = artists.artists;
+      vm.loading = true;
+    //  console.log(vm.topArtists);
 
-      console.log('Clash reached');
-      $scope.myInterval = 5000;
-      $scope.noWrapSlides = false;
-      var slides = $scope.slides = [];
-      $scope.addSlide = function() {
+      vm.topArtists.forEach(function(selectedArtist) {
+        Spotify.search(selectedArtist.name).then(function(artist) {
+          vm.artist = artist;
+          vm.addSlide(vm.artist.items[0].images[0].url, vm.artist.items[0].name);
+          vm.loading = false;
+        });
+      });
+
+      vm.myInterval = 4000;
+      vm.noWrapSlides = false;
+      var slides = vm.slides = [];
+      vm.addSlide = function(image, artistName) {
         var newWidth = 600 + slides.length + 1;
         slides.push({
-          image: '//placekitten.com/' + newWidth + '/300',
-          text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
-            ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+          image: image,
+          name: artistName
         });
       };
-      for (var i=0; i<4; i++) {
-        $scope.addSlide();
-      }
+      // for (var i = 0; i < vm.topArtists.length; i++) {
+      //   console.log(vm.artist[i]);
+      //   //console.log( vm.artist[i]);
+      // //  vm.addSlide(vm.artist[i].items[0].images[0].url, vm.artist[i].items[0].name);
+      // }
   });

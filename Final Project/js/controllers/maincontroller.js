@@ -22,8 +22,9 @@ angular
       // check if the user exists
       // if exists, show him previous searches & show him the stats page
       // if not, show him the page & store the user to the database
+
       console.log($scope.user); // store the user
-      $location.path('/clash');
+      $location.path('/clash/' + $scope.user.genre.toLowerCase());
 
     }
 
