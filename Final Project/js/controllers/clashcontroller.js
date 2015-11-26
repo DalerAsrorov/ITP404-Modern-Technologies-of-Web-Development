@@ -4,7 +4,6 @@ angular
       var vm = this;
       vm.topArtists = artists.artists;
       vm.loading = true;
-    //  console.log(vm.topArtists);
 
       vm.topArtists.forEach(function(selectedArtist) {
         Spotify.search(selectedArtist.name).then(function(artist) {
@@ -17,6 +16,10 @@ angular
       vm.myInterval = 4000;
       vm.noWrapSlides = false;
       var slides = vm.slides = [];
+
+      // add slide that contains the image and
+      // name of the artist taken from API
+      // call via Spotify service
       vm.addSlide = function(image, artistName) {
         var newWidth = 600 + slides.length + 1;
         slides.push({
@@ -24,9 +27,4 @@ angular
           name: artistName
         });
       };
-      // for (var i = 0; i < vm.topArtists.length; i++) {
-      //   console.log(vm.artist[i]);
-      //   //console.log( vm.artist[i]);
-      // //  vm.addSlide(vm.artist[i].items[0].images[0].url, vm.artist[i].items[0].name);
-      // }
   });
