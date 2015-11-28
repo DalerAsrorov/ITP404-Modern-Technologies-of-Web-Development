@@ -72,9 +72,10 @@
 						<uib-slide ng-repeat="slide in vm.eventSlides" active="slide.active">
 							<a href="#">
 								<img ng-src="{{slide.image}}" class="pic-box-img" style="margin:auto;">
-								<div class="carousel-caption">
-										Daler
-									</div>
+								<div class="carousel-caption songs">
+									<span>{{ slide.name }} </span> <br>
+									<span class="album-artist-caption"> {{ slide.venueName }}, {{ slide.state }} </span>
+								</div>
 							</a>
 						</uib-slide>
 						<a href="#" class="caption-links">

@@ -52,6 +52,7 @@ angular
      });
 
 
+     var artistImageForEvent = "";
       vm.addEvents = function(artist) {
          if(navigator.geolocation) {
            navigator.geolocation.getCurrentPosition(function(position) {
@@ -61,9 +62,25 @@ angular
              };
               var bands = BandsInTown.findConcert(artist, pos);
               bands.then(function(response){
-                console.log(response);
+                //console.log(response);
                 if(response.length !== 0 && response !==null && response !== 'undefined') {
-                  console.log("not");
+                  response.forEach(function(artist) {
+                      artist.artists.forEach(function(oneArtist) {
+                        Spotify.search(oneArtist.name).then(function(element) {
+                          if(element.items[0] == undefined) {
+                              artistImageForEvent = 'http://www.eibn.org/upload/company_directory/logos/default.png';
+                          } else if(element.items[0].images[0] == undefined) {
+                            artistImageForEvent = 'http://www.eibn.org/upload/company_directory/logos/default.png';
+                          } else {
+                            artistImageForEvent = element.items[0].images[0].url;
+                          }
+                          //console.log(artist.venue.name + ", " + artist.venue.region);
+                          //console.log(artist.venue.region);
+                          console.log(artistImageForEvent);
+                          vm.addEventSlides(artistImageForEvent, element.items[0].name, artist.venue.name, artist.venue.region);
+                        });
+                      })
+                  })
                 }
               })
            });
@@ -77,7 +94,6 @@ angular
      vm.hoverOut = function() {
        vm.hover = false;
      }
-
 
 
       vm.myInterval = 4000;
@@ -114,7 +130,7 @@ angular
 
       var eventSlides = vm.eventSlides = [];
       vm.addEventSlides = function(image, artistName, venueName, state) {
-        songSlides.push({
+        eventSlides.push({
           image: image,
           name: artistName,
           venueName: venueName,
