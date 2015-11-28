@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('ClashCtrl', function(artists, genre, iTunes, Spotify, SearchGenre) {
+  .controller('ClashCtrl', function(artists, genre, iTunes, Spotify, SearchGenre, $location, BandsInTown) {
       var vm = this;
       var name = "";
       vm.genre = genre;
@@ -47,6 +47,29 @@ angular
        });
      });
 
+     vm.hover = false;
+     vm.hoverIn = function() {
+       vm.hover = true;
+     }
+     vm.hoverOut = function() {
+       vm.hover = false;
+     }
+
+
+     //location for BandsInTownAPI
+     var pos = {};
+
+     if(navigator.geolocation) {
+       navigator.geolocation.getCurrentPosition(function(position) {
+         var pos = {
+           lat: position.coords.latitude,
+           lng: position.coords.longitude
+         };
+          var bands = BandsInTown.findConcert("Justin Bieber", pos);
+          console.log(bands);
+
+       });
+     }
 
       vm.myInterval = 4000;
       vm.noWrapSlides = false;

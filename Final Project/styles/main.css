@@ -86,7 +86,7 @@ md-input-container.md-default-theme:not(.md-input-invalid).md-input-has-value la
 .input-box {
   display: inline; }
 
-#clash {
+.subpage {
   height: 100%;
   background: #0B1C30;
   color: white;
@@ -104,10 +104,6 @@ md-input-container.md-default-theme:not(.md-input-invalid).md-input-has-value la
 .md-whiteframe-z5.options-box {
   box-shadow: 0 8px 10px -5px rgba(255, 255, 255, 0.2), 0 16px 24px 2px rgba(255, 255, 255, 0.14), 0 6px 30px 5px rgba(255, 255, 255, 0.12);
   padding: 0; }
-
-img {
-  width: 100px;
-  height: 100px; }
 
 .carousel {
   width: 100%; }
@@ -148,10 +144,19 @@ img {
   font-weight: 700;
   font-style: italic; }
 
+.album-caption {
+  width: 100%;
+  display: block;
+  float: none;
+  overflow: auto;
+  margin: 0 auto; }
+
 .album-artist-caption {
   color: darkturquoise;
   font-size: 14px;
-  font-style: italic; }
+  font-style: italic;
+  position: relative;
+  top: -10px; }
 
 a.caption-links {
   text-decoration: none;
@@ -161,6 +166,15 @@ a.caption-links {
     background: green; }
     a.caption-links:hover .box-albums {
       background: green; }
+
+.md-button.md-raised:not([disabled]).pic-box {
+  padding: 0;
+  margin: 0;
+  width: 100%; }
+
+img.pic-box-img {
+  width: 100%;
+  height: 200px; }
 
 .md-button.md-raised:not([disabled]).box-caption {
   margin: 0;
@@ -182,5 +196,58 @@ a.caption-links {
   background: #5F9EA0; }
   .md-button.md-raised:not([disabled]).box-artists:hover {
     background: #7fb1b3; }
+
+.md-button.md-raised:not([disabled]).box-events {
+  background: #9d9f60; }
+  .md-button.md-raised:not([disabled]).box-events:hover {
+    background: #b1b280; }
+
+.top-button-a {
+  width: 100%; }
+
+.artist-image {
+  width: 100px;
+  height: 100px; }
+
+.weight {
+  font-weight: 800; }
+
+.button-container {
+  margin: 0; }
+
+.artist-image {
+  width: 100%; }
+
+#artists {
+  height: none; }
+
+.container {
+  background: #0B1C30;
+  padding: 0; }
+
+.grid {
+  margin: 10px;
+  display: inline-block;
+  float: none; }
+  .grid img {
+    height: 170px; }
+
+.artists-sub {
+  height: auto; }
+
+.wrapper {
+  float: none;
+  display: block;
+  margin: 0 auto;
+  text-align: center; }
+
+.md-button.md-raised:not([disabled]).artist-box {
+  background: #5F9EA0;
+  margin: 0;
+  padding: 0; }
+
+@media screen and (max-width: 599px) {
+  #options-section {
+    height: 50px; } }
 
 /*# sourceMappingURL=main.css.map */

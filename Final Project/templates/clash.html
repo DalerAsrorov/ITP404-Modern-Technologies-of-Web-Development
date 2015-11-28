@@ -1,4 +1,4 @@
-<div id="clash">
+<div id="clash" class="subpage">
 	<div class="container">
 		<div id="options-section" layout-padding layout-wrap layout="row" layout-sm="column">
 			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-artists" flex>
@@ -6,17 +6,21 @@
 					<uib-carousel interval="vm.myInterval" no-wrap="vm.noWrapSlides">
 			      <uib-slide ng-repeat="slide in vm.artistsSlides" active="slide.active">
 							<a href="#">
-								<img ng-src="{{slide.image}}" style="margin:auto;">
-			        	<div class="carousel-caption">
-									{{ slide.name }}
+								<md-button class="md-raised pic-box">
+									<img ng-src="{{slide.image}}" class="pic-box-img" style="margin:auto;">
+				        	<div class="carousel-caption">
+										{{ slide.name }}
 									</div>
+								</md-button>
 							</a>
 			      </uib-slide>
-						<a href="#" class="caption-links">
-							<md-button class="md-raised box-caption box-artists">
-								Popular Artists
+						<a href="#/clash/{{vm.genre}}/artists" class="caption-links">
+							<md-button ng-mouseover="vm.hoverIn()" ng-mouseleave="vm.hoverOut()" aria-label="popular artists" class="md-raised box-caption box-artists">
+								<span ng-if="!vm.hover" >Popular Artists </span>
+								<span ng-if="vm.hover">Show All</span>
+								<span>
 							</md-button>
-						</a>	
+						</a>
 			    </uib-carousel>
 			</md-whiteframe>
 			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-songs" flex>
@@ -24,11 +28,13 @@
 					<uib-carousel interval="vm.myInterval" no-wrap="vm.noWrapSlides">
 						<uib-slide ng-repeat="slide in vm.albumSlides" active="slide.active">
 							<a href="#">
-								<img ng-src="{{slide.image}}" style="margin:auto;">
-								<div class="carousel-caption album">
-										<span>{{ slide.album }} </span> <br>
-										<span class="album-artist-caption"> by {{ slide.name }} </span>
+								<md-button class="md-raised pic-box">
+									<img ng-src="{{slide.image}}" class="pic-box-img" style="margin:auto;">
+									<div class="carousel-caption album">
+											<div class="album-caption">{{ slide.album }} </div>
+											<span class="album-artist-caption"> by {{ slide.name }} </span>
 									</div>
+								</md-button>
 							</a>
 						</uib-slide>
 						<a href="#" class="caption-links">
@@ -44,11 +50,13 @@
 					<uib-carousel interval="vm.myInterval" no-wrap="vm.noWrapSlides">
 						<uib-slide ng-repeat="slide in vm.songSlides" active="slide.active">
 							<a href="#">
-								<img ng-src="{{slide.image}}" style="margin:auto;">
-								<div class="carousel-caption songs">
-									<span>{{ slide.song }} </span> <br>
-									<span class="album-artist-caption"> by {{ slide.name }} </span>
-								</div>
+								<md-button class="md-raised pic-box">
+									<img ng-src="{{slide.image}}" class="pic-box-img" style="margin:auto;">
+									<div class="carousel-caption songs">
+										<span>{{ slide.song }} </span> <br>
+										<span class="album-artist-caption"> by {{ slide.name }} </span>
+									</div>
+								</md-button>
 							</a>
 						</uib-slide>
 						<a href="#" class="caption-links">
@@ -60,17 +68,20 @@
 			</md-whiteframe>
 			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-events" flex>
 					<!-- <directive> </directive> -->
-					<!-- <directive> </directive> -->
-					<uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-						<uib-slide ng-repeat="slide in vm.slides" active="slide.active">
+					<uib-carousel interval="vm.myInterval" no-wrap="vm.noWrapSlides">
+						<uib-slide ng-repeat="slide in vm.eventSlides" active="slide.active">
 							<a href="#">
-								<img ng-src="{{slide.image}}" style="margin:auto;">
+								<img ng-src="{{slide.image}}" class="pic-box-img" style="margin:auto;">
 								<div class="carousel-caption">
 										Daler
 									</div>
 							</a>
 						</uib-slide>
-						<div class="box-caption box-events">Events Nearby</div>
+						<a href="#" class="caption-links">
+							<md-button class="md-raised box-caption box-events">
+								Events Nearby
+							</md-button>
+						</a>
 					</uib-carousel>
 			</md-whiteframe>
 		</div>

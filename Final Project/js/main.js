@@ -1,32 +1,5 @@
-// angular
-//   .module('app', ['ngRoute', 'ngMaterial', 'ngMdIcons'])
-//   .config(function($routeProvider) {
-//     $routeProvider
-//       .when('/login', {
-//         templateUrl: 'index.html',
-//         controller: 'MainCtrl'
-//       })
-//       .when('/main/:userId', {
-//         templateUrl: '/templates/user.html',
-//         controller: 'UserCtrl'
-//         // resolve: {
-//         //   albums: function($route, $http, $location) {
-//         //     var routeId = $route.current.pathParams.artistId;
-//         //     var url = 'https://itunes.apple.com/lookup?id=' + routeId + '&entity=album' + '&callback=JSON_CALLBACK';
-//         //     return $http.jsonp(url).then(function(response) {
-//         //       return response.data.results;
-//         //     }, function() {
-//         //       $location.path('/search');
-//         //     });
-//         //   }
-//         // }
-//       })
-//       .otherwise({
-//         redirectTo: '/login'
-//       });
-//   });
 angular
-  .module('app', ['ngRoute','ngMaterial', 'ngMdIcons', 'ui.bootstrap'])
+  .module('app', ['ngRoute','ngMaterial', 'ngMdIcons', 'ui.bootstrap', 'ngAnimate'])
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
@@ -61,19 +34,46 @@ angular
           },
           SearchGenre: function(SearchGenre) {
             return SearchGenre;
+          },
+          location: function($location) {
+            return $location;
+          },
+          BandsInTown: function(BandsInTown) {
+            return BandsInTown;
           }
         }
       })
-      .when('/clash/:genre/:artist', {
-        templateUrl: '/templates/artist.html',
-        controller: 'ArtistCtrl',
-        controllerAs: 'vm',
-        resolve: {
-          artist: function() {
+      .when('/clash/:genre/artists', {
+          templateUrl: '/templates/artists.html',
+          controller: 'ArtistsCtrl',
+          controllerAs: 'vm',
+          resolve: {
+            TopArtists: function(TopArtists) {
+              return TopArtists;
+            },
+            Spotify: function(Spotify) {
+              return Spotify;
+            },
+            genre: function($route, $http, $location) {
+              return $route.current.pathParams;
+            },
+            Locator: function(Locator) {
+              return Locator;
+            }
+          }
+      })
+      // .when('/clash/:genre/:artist', {
+      //   templateUrl: '/templates/artist.html',
+      //   controller: 'ArtistCtrl',
+      //   controllerAs: 'vm',
+      //   resolve: {
+      //     artist: function() {
+      //
+      //     }
+      //   }
+      // })
 
-          }
-        }
-      })
+
       // .when('/artists/:id', {
       //   templateUrl: '/templates/artist.html',
       //   controller: 'ArtistController',
