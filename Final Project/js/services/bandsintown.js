@@ -8,8 +8,7 @@ angular
         var url = 'http://api.bandsintown.com/events/recommended?artists[]=' +
           artist + '&location=' + loc.lat + "," + loc.lng + '&radius=15&format=json&app_id=melodyclash&callback=JSON_CALLBACK';
         return $http.jsonp(url).then(function(response) {
-            console.log(response);
-           //return response.data.results;
+           return response.data;
         });
       }
     };

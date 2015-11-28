@@ -7,6 +7,7 @@ angular
       vm.topArtists = artists.artists;
       vm.topAlbums;
       vm.topSongs;
+      vm.events;
       vm.loading = true;
 
       vm.topArtists.forEach(function(selectedArtist) {
@@ -18,6 +19,7 @@ angular
       });
 
      SearchGenre.listAll(vm.genre).then(function(listOfGenres) {
+       console.log(listOfGenres);
        listOfGenres.forEach(function(genre) {
          if(genre.name.toLowerCase().indexOf(vm.genre.toLowerCase()) > -1 ) {
             SearchGenre.listArtists(genre.id).then(function(topAlbumsList) {
@@ -32,6 +34,8 @@ angular
                   Spotify.search(song.artist.name).then(function(artist) {
                       var imageURL = "";
                       console.log(song.artist.name);
+                      vm.addEvents(song.artist.name);
+
                       if(artist.items[0] == undefined) {
                           imageURL = 'http://www.eibn.org/upload/company_directory/logos/default.png';
                       } else if(artist.items[0].images[0] == undefined) {
@@ -47,6 +51,25 @@ angular
        });
      });
 
+
+      vm.addEvents = function(artist) {
+         if(navigator.geolocation) {
+           navigator.geolocation.getCurrentPosition(function(position) {
+             var pos = {
+               lat: position.coords.latitude,
+               lng: position.coords.longitude
+             };
+              var bands = BandsInTown.findConcert(artist, pos);
+              bands.then(function(response){
+                console.log(response);
+                if(response.length !== 0 && response !==null && response !== 'undefined') {
+                  console.log("not");
+                }
+              })
+           });
+         }
+      }
+
      vm.hover = false;
      vm.hoverIn = function() {
        vm.hover = true;
@@ -56,20 +79,6 @@ angular
      }
 
 
-     //location for BandsInTownAPI
-     var pos = {};
-
-     if(navigator.geolocation) {
-       navigator.geolocation.getCurrentPosition(function(position) {
-         var pos = {
-           lat: position.coords.latitude,
-           lng: position.coords.longitude
-         };
-          var bands = BandsInTown.findConcert("Justin Bieber", pos);
-          console.log(bands);
-
-       });
-     }
 
       vm.myInterval = 4000;
       vm.noWrapSlides = false;
@@ -100,6 +109,16 @@ angular
           image: image,
           name: artistName,
           song: songName
+        });
+      }
+
+      var eventSlides = vm.eventSlides = [];
+      vm.addEventSlides = function(image, artistName, venueName, state) {
+        songSlides.push({
+          image: image,
+          name: artistName,
+          venueName: venueName,
+          state: state
         });
       }
 
