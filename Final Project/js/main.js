@@ -1,5 +1,5 @@
 angular
-  .module('app', ['ngRoute','ngMaterial', 'ngMdIcons', 'ui.bootstrap', 'ngAnimate'])
+  .module('app', ['ngRoute','ngMaterial', 'ngMdIcons', 'ui.bootstrap',  'ngAnimate', 'ngAudio'])
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
@@ -70,6 +70,15 @@ angular
           artist: function($route, $http, $location) {
             return $route.current.pathParams.artist;
           },
+          iTunes: function(iTunes) {
+            return iTunes;
+          },
+          Spotify: function(Spotify) {
+            return Spotify;
+          },
+          ngAudio: function(ngAudio) {
+            return ngAudio;
+          }
         }
       })
       // .when('/clash/:genre/:artist', {

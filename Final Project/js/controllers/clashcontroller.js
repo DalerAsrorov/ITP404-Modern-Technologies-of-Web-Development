@@ -18,10 +18,6 @@ angular
       console.log(vm.topArtists.length + " length.....");
       vm.topArtists.forEach(function(selectedArtist) {
         sum += selectedArtist.hotttnesss;
-
-
-        console.log(selectedArtist.hotttnesss);
-        console.log(sum);
         Spotify.search(selectedArtist.name).then(function(artist) {
           vm.artist = artist;
           vm.addArtistsSlide(vm.artist.items[0].images[0].url, vm.artist.items[0].name);

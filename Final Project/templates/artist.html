@@ -1,1 +1,33 @@
-artist.html
+<div id="artists" class="subpage">
+	<div class="container" >
+		<div id="options-section" class="option-section-class" layout-padding layout-wrap layout="row" layout-sm="column">
+
+      <div class="wrapper-i" layout="row" layout-sm="column">
+        <div layout="column" class="wrapper-left-i" flex="40" >
+          <md-whiteframe class="md-whiteframe-z5 options-box artist-box" layout layout-align="center center" id="option-artists" >
+    						<img class="artist-image-i" ng-src="{{vm.artistImageURL}}">
+          </md-whiteframe>
+          <div class="artist-name-i">
+              {{vm.artistName}}
+          </div>
+        </div>
+
+        <div layout="column" class="wrapper-right-i" flex>
+          <md-whiteframe class="md-whiteframe-z5 options-box song-box" layout layout-align="center center" id="option-artists" >
+              <div class="nav-songs">Songs</div>
+              <div class="list-of-songs">
+                <ul>
+                <li  ng-repeat="song in vm.sound" >
+									<md-button ng-click='song.paused ? song.play() : song.pause()'>Pause</md-button>
+									<md-button  ng-click='song.restart()'>Stop</md-button >
+									<md-button  ng-click='song.muting = !song.muting'>Mute</md-button > <br>
+										<label>Current Time</label>
+ 										<input class='form-control' type=text ng-model='song.currentTime'>
+                  </li>
+                </ul>
+              </div>
+          </md-whiteframe>
+        </div>
+      </div>
+	</div>
+</div>
