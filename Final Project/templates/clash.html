@@ -31,7 +31,7 @@
 								<md-button class="md-raised pic-box">
 									<img ng-src="{{slide.image}}" class="pic-box-img" style="margin:auto;">
 									<div class="carousel-caption album">
-											<div class="album-caption">{{ slide.album }} </div>
+											<div class="album-caption">{{ slide.album | cut:true:18:' ...' }} </div>
 											<span class="album-artist-caption"> by {{ slide.name }} </span>
 									</div>
 								</md-button>
@@ -79,7 +79,7 @@
 									<img ng-src="{{slide.image}}" class="pic-box-img" style="margin:auto;">
 									<div class="carousel-caption songs">
 										<span>{{ slide.name }} </span> <br>
-										<span class="event-artist-caption"> {{ slide.venueName }}, {{ slide.state }} </span>
+										<span class="event-artist-caption"> {{ slide.venueName| cut:true:15:' ...' }}, {{ slide.state }} </span>
 									</div>
 								</md-button>
 							</a>
