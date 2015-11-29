@@ -152,7 +152,7 @@ md-input-container.md-default-theme:not(.md-input-invalid).md-input-has-value la
   margin: 0 auto; }
 
 .album-artist-caption {
-  color: darkturquoise;
+  color: #cce5ff;
   font-size: 14px;
   font-style: italic;
   position: relative;
@@ -201,6 +201,22 @@ img.pic-box-img {
   background: #9d9f60; }
   .md-button.md-raised:not([disabled]).box-events:hover {
     background: #b1b280; }
+
+.event-artist-caption {
+  color: #cce5ff;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 800; }
+
+md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle {
+  border-right-color: #cce5ff; }
+
+md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle {
+  border-left-color: #cce5ff;
+  border-bottom-color: #cce5ff; }
+
+md-progress-circular.md-default-theme .md-inner .md-left .md-half-circle, md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle {
+  border-top-color: #cce5ff; }
 
 .top-button-a {
   width: 100%; }

@@ -53,6 +53,7 @@ angular
 
 
      var artistImageForEvent = "";
+     vm.loaded = false;
       vm.addEvents = function(artist) {
          if(navigator.geolocation) {
            navigator.geolocation.getCurrentPosition(function(position) {
@@ -77,6 +78,7 @@ angular
                           //console.log(artist.venue.name + ", " + artist.venue.region);
                           //console.log(artist.venue.region);
                           console.log(artistImageForEvent);
+                          vm.loaded=true;
                           vm.addEventSlides(artistImageForEvent, element.items[0].name, artist.venue.name, artist.venue.region);
                         });
                       })

@@ -7,6 +7,7 @@ $lightblue-color: #5F9EA0;
 $red-color: #9f6260;
 $blue-color: #607d96;
 $green-color: #9d9f60;
+$caption-color: #cce5ff;
 
  .subpage{
   height: 100%;
@@ -89,7 +90,7 @@ $green-color: #9d9f60;
 }
 
 .album-artist-caption {
-  color: darkturquoise;
+  color: $caption-color;
   font-size: 14px;
   font-style: italic;
   position: relative;
@@ -157,3 +158,23 @@ img.pic-box-img {
     background: lighten($green-color, 10%);
   }
 }
+
+.event-artist-caption {
+  color: $caption-color;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle {
+  border-right-color: $caption-color;
+}
+
+md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle {
+  border-left-color: $caption-color;
+  border-bottom-color: $caption-color;
+}
+
+ md-progress-circular.md-default-theme .md-inner .md-left .md-half-circle, md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle {
+     border-top-color: $caption-color;
+ }
