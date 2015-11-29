@@ -208,15 +208,32 @@ img.pic-box-img {
   font-size: 18px;
   font-weight: 800; }
 
-md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle {
-  border-right-color: #cce5ff; }
+.popularity-rate {
+  text-align: center; }
 
-md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle {
-  border-left-color: #cce5ff;
-  border-bottom-color: #cce5ff; }
+.nav-box.popularity {
+  background: blue;
+  font-weight: 800;
+  font-size: 22px;
+  padding: 3px;
+  border-radius: 5px 5px 0px 0px; }
 
-md-progress-circular.md-default-theme .md-inner .md-left .md-half-circle, md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle {
-  border-top-color: #cce5ff; }
+.nav-box.description {
+  background: #4ac1e8;
+  font-weight: 800;
+  font-size: 22px;
+  padding: 3px 3px 3px 10px;
+  border-radius: 5px 5px 0px 0px; }
+
+.genre-description {
+  padding: 10px; }
+
+.popularity-number {
+  font-size: 135px;
+  font-weight: 800; }
+
+.second-layer {
+  border-radius: 5px; }
 
 .top-button-a {
   width: 100%; }

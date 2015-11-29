@@ -68,19 +68,20 @@
 			</md-whiteframe>
 			<md-whiteframe class="md-whiteframe-z5 options-box" layout layout-align="center center" id="option-events" flex>
 
-					<md-progress-circular ng-if="!vm.loaded" class="event-loader" style="margin-top: -50px;" md-mode="indeterminate"></md-progress-circular>
+					<md-progress-circular ng-if="!vm.loaded" class="md-accent md-hue-1 ng-scope" style="margin-top: -50px;" md-mode="indeterminate"></md-progress-circular>
 
 					<!-- <directive> </directive> -->
 					<uib-carousel ng-if="vm.loaded" interval="vm.myInterval" no-wrap="vm.noWrapSlides">
 						<uib-slide ng-repeat="slide in vm.eventSlides" active="slide.active">
 
 							<a href="#">
-								<img ng-src="{{slide.image}}" class="pic-box-img" style="margin:auto;">
-								<div class="carousel-caption songs">
-									<span>{{ slide.name }} </span> <br>
-									<span class="event-artist-caption"> {{ slide.venueName }}, {{ slide.state }} </span>
-								</div>
-
+								<md-button class="md-raised pic-box">
+									<img ng-src="{{slide.image}}" class="pic-box-img" style="margin:auto;">
+									<div class="carousel-caption songs">
+										<span>{{ slide.name }} </span> <br>
+										<span class="event-artist-caption"> {{ slide.venueName }}, {{ slide.state }} </span>
+									</div>
+								</md-button>
 							</a>
 						</uib-slide>
 						<a href="#" class="caption-links">
@@ -89,6 +90,22 @@
 							</md-button>
 						</a>
 					</uib-carousel>
+			</md-whiteframe>
+		</div>
+
+		<br><br>
+		<div layout="row">
+			<md-whiteframe class="md-whiteframe-z5 options-box second-layer col-lg-3" id="option-artists">
+					<div class="popularity-rate" >
+						<div class="nav-box popularity">Popularity Rate</div>
+						<div class="popularity-number"> {{   vm.popularityRate | limitTo: 2 }} </div>
+					</div>
+			</md-whiteframe>
+			<md-whiteframe class="md-whiteframe-z5 options-box second-layer col-lg-9" id="option-artists" >
+					<div class="about-genre" flex>
+						<div class="nav-box description" >About Genre</div>
+						<div class="genre-description"> {{ vm.description }} </div>
+					</div>
 			</md-whiteframe>
 		</div>
 	</div>

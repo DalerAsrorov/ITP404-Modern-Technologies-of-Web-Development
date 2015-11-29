@@ -9,8 +9,19 @@ angular
       vm.topSongs;
       vm.events;
       vm.loading = true;
+      vm.popularityRate = 0;
+      vm.description = "";
 
+
+      var sum = 0;
+
+      console.log(vm.topArtists.length + " length.....");
       vm.topArtists.forEach(function(selectedArtist) {
+        sum += selectedArtist.hotttnesss;
+
+
+        console.log(selectedArtist.hotttnesss);
+        console.log(sum);
         Spotify.search(selectedArtist.name).then(function(artist) {
           vm.artist = artist;
           vm.addArtistsSlide(vm.artist.items[0].images[0].url, vm.artist.items[0].name);
@@ -18,11 +29,15 @@ angular
         });
       });
 
+      vm.popularityRate = (sum / vm.topArtists.length) * 100;
+
+
      SearchGenre.listAll(vm.genre).then(function(listOfGenres) {
        console.log(listOfGenres);
        listOfGenres.forEach(function(genre) {
          if(genre.name.toLowerCase().indexOf(vm.genre.toLowerCase()) > -1 ) {
             SearchGenre.listArtists(genre.id).then(function(topAlbumsList) {
+                vm.description = genre.description;
                 vm.topAlbums = topAlbumsList;
                 vm.topAlbums.forEach(function(album) {
                   vm.addAlbumsSlide (album.images[0].url, album.artist.name, album.name);
@@ -77,7 +92,7 @@ angular
                           }
                           //console.log(artist.venue.name + ", " + artist.venue.region);
                           //console.log(artist.venue.region);
-                          console.log(artistImageForEvent);
+
                           vm.loaded=true;
                           vm.addEventSlides(artistImageForEvent, element.items[0].name, artist.venue.name, artist.venue.region);
                         });

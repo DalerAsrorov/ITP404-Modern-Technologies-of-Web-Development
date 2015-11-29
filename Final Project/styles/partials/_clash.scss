@@ -166,15 +166,37 @@ img.pic-box-img {
   font-weight: 800;
 }
 
-md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle {
-  border-right-color: $caption-color;
+.popularity-rate {
+  text-align: center;
 }
 
-md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle {
-  border-left-color: $caption-color;
-  border-bottom-color: $caption-color;
+.nav-box.popularity {
+  background: blue;
+  font-weight: 800;
+  font-size: 22px;
+  padding: 3px;
+  border-radius: 5px 5px 0px 0px;
+
 }
 
- md-progress-circular.md-default-theme .md-inner .md-left .md-half-circle, md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle {
-     border-top-color: $caption-color;
- }
+.nav-box.description {
+  background: #4ac1e8;
+  font-weight: 800;
+  font-size: 22px;
+  padding: 3px 3px 3px 10px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.genre-description {
+  padding: 10px;
+}
+
+.popularity-number {
+  font-size: 135px;
+  font-weight: 800;
+
+}
+
+.second-layer {
+  border-radius: 5px;
+}
