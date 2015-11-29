@@ -15,7 +15,7 @@
 
      <div class="wrapper" >
         <md-whiteframe class="md-whiteframe-z5 options-box col-lg-2 col-md-2 col-sm-3 col-xs-5 grid" layout layout-align="center center" ng-repeat="artist in vm.artists" id="option-artists" >
-          	<a href="#/clash/{{vm.genre}}/artists/{{vm.artist}} col-sm-4">
+          	<a href="#/clash/{{vm.genre}}/artists/{{artist.name}}">
               <md-button  aria-label="popular artists" class="md-raised button-containe artist-box">
                   <img class="artist-image" src="{{artist.image}}">
                   <br>

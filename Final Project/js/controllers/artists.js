@@ -5,6 +5,7 @@ angular
     vm.images = [];
     var imageURL = "";
     var genre = genre;
+    vm.genre = genre.genre;
 
     var artists = TopArtists.getArtists(genre.genre);
     artists.then(function(response) {

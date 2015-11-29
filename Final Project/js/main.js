@@ -62,6 +62,16 @@ angular
             }
           }
       })
+      .when ('/clash/:genre/artists/:artist', {
+        templateUrl: '/templates/artist.html',
+        controller: 'ArtistCtrl',
+        controllerAs: 'vm',
+        resolve: {
+          artist: function($route, $http, $location) {
+            return $route.current.pathParams.artist;
+          },
+        }
+      })
       // .when('/clash/:genre/:artist', {
       //   templateUrl: '/templates/artist.html',
       //   controller: 'ArtistCtrl',

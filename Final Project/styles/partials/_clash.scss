@@ -171,7 +171,7 @@ img.pic-box-img {
 }
 
 .nav-box.popularity {
-  background: blue;
+  background: #6D6DDA;
   font-weight: 800;
   font-size: 22px;
   padding: 3px;
@@ -183,7 +183,7 @@ img.pic-box-img {
   background: #4ac1e8;
   font-weight: 800;
   font-size: 22px;
-  padding: 3px 3px 3px 10px;
+  padding: 3px 3px 3px 15px;
   border-radius: 5px 5px 0px 0px;
 }
 
@@ -195,6 +195,10 @@ img.pic-box-img {
   font-size: 135px;
   font-weight: 800;
 
+}
+
+.outOfHundreed {
+  font-size: 25px;
 }
 
 .second-layer {
