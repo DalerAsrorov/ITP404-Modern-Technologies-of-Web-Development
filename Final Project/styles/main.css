@@ -299,13 +299,20 @@ img.pic-box-img {
   width: 100%; }
 
 .list-of-songs {
-  margin-top: 20px; }
+  margin-top: 0px; }
 
 .play {
   font-size: 30px; }
 
 .song-list-item {
-  margin-top: 8px; }
+  margin-top: 8px;
+  width: 100%;
+  margin-top: 8px;
+  margin: 0 auto;
+  /* background: yellow; */
+  -moz-box-shadow: initial;
+  box-shadow: -2px 3px 24px -6px cadetblue;
+  padding: 5px 0; }
 
 .nav-songs {
   display: table;
@@ -321,7 +328,8 @@ img.pic-box-img {
 
 .songs-list {
   list-style-type: none;
-  text-align: center; }
+  text-align: center;
+  padding: 0; }
 
 .time-progress {
   width: 80%;
@@ -333,5 +341,9 @@ img.pic-box-img {
   color: white; }
   .link:hover {
     color: white; }
+
+input[type=range] {
+  width: 100%;
+  margin: 0; }
 
 /*# sourceMappingURL=main.css.map */

@@ -16,7 +16,7 @@
 }
 
 .list-of-songs {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .play {
@@ -25,7 +25,15 @@
 
 .song-list-item {
   margin-top: 8px;
+  width: 100%;
+  margin-top: 8px;
+  margin: 0 auto;
+  /* background: yellow; */
+  -moz-box-shadow: initial;
+  box-shadow: -2px 3px 24px -6px rgba(95,158,160,1);
+  padding: 5px 0;
 }
+
 
 .nav-songs {
   display: table;
@@ -44,6 +52,8 @@
 .songs-list {
   list-style-type:none;
   text-align: center;
+  padding: 0;
+
 }
 
 .time-progress {
@@ -59,4 +69,9 @@
   &:hover {
     color: white;
   }
+}
+
+input[type=range] {
+  width: 100%;
+  margin:0;
 }

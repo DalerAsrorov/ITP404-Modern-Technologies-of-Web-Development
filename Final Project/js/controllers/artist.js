@@ -33,9 +33,6 @@ angular
             vm.sound[i].songName = vm.arrayOfSongs[i].trackName;
             vm.sound[i].songURL = vm.arrayOfSongs[i].trackViewUrl;
         }
-
-
-
     });
 
 
