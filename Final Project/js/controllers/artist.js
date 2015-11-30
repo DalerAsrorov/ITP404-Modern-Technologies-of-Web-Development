@@ -7,6 +7,7 @@ angular
     vm.artistImageURL;
     vm.noVideos = false;
     vm.songsCollection = [];
+    vm.songsLoaded = false;
     vm.sound = [];
 
     Spotify.search(vm.artistName).then(function(artist) {
@@ -33,6 +34,7 @@ angular
             vm.sound[i].songName = vm.arrayOfSongs[i].trackName;
             vm.sound[i].songURL = vm.arrayOfSongs[i].trackViewUrl;
         }
+        vm.songsLoaded= true;
     });
 
 

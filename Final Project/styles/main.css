@@ -344,6 +344,10 @@ img.pic-box-img {
 
 input[type=range] {
   width: 100%;
-  margin: 0; }
+  margin: 0;
+  background: #d5e6e6; }
+
+.progress-linear-songs {
+  margin-top: 90px; }
 
 /*# sourceMappingURL=main.css.map */

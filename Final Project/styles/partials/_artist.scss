@@ -74,4 +74,9 @@
 input[type=range] {
   width: 100%;
   margin:0;
+  background: lighten(#5F9EA0, 37%);
+}
+
+.progress-linear-songs {
+  margin-top: 90px;
 }

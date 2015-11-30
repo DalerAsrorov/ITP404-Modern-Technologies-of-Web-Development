@@ -11,11 +11,11 @@
               {{vm.artistName}}
           </div>
         </div>
-
         <div layout="column" class="wrapper-right-i" flex="60">
           <md-whiteframe class="md-whiteframe-z5 options-box song-box" layout="column" id="option-artists" >
               <div class="nav-songs"> <span> Popular Songs </span></div>
-              <div class="list-of-songs">
+							<md-progress-linear class="md-accent md-hue-1 ng-scope progress-linear-songs" md-mode="indeterminate" ng-if="!vm.songsLoaded"></md-progress-linear>
+              <div class="list-of-songs" ng-if="vm.songsLoaded">
                 <ul class="songs-list">
                 	<li  ng-repeat="song in vm.sound" class="song-list-item">
 										<label>{{ song.songName }}</label>
