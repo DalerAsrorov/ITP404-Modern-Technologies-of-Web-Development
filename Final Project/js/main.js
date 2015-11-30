@@ -100,6 +100,19 @@ angular
           }
         }
       })
+      .when('/clash/:genre/albums/:album', {
+        templateUrl: '/templates/album.html',
+        controller: 'AlbumCtrl',
+        controllerAs: 'vm',
+        resolve: {
+          genre: function($route, $http, $location) {
+            return $route.current.pathParams.genre;
+          },
+          SearchGenre: function(SearchGenre) {
+            return SearchGenre;
+          }
+        }
+      })
 
 
       // .when('/artists/:id', {
