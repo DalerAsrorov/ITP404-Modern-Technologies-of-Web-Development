@@ -3,6 +3,10 @@
 ## Description
 Web application that allows users to create stories with special features such as graphs of the most visited countries, cool stories to visit, favorite stories, and others.
 
+## Link to the App
+
+http://www.dummylink.com/ --- will update later
+
 ## Main Technologies
 The application will utilize the following tools:
  - Firebase
@@ -28,3 +32,4 @@ The application will utilize the following tools:
   - Spotify API
   - EchoNest API
   - iTunes API
+  - BandsInTown API
