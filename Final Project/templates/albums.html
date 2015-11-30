@@ -2,9 +2,10 @@
 	<div class="container" >
 		<div id="options-section" class="option-section-class" layout-padding layout-wrap layout="row" layout-sm="column">
 			<md-whiteframe class="md-whiteframe-z5 options-box artist-box" layout layout-align="center center" id="option-artists" flex="100">
-						<a href="#/clash/{{vm.genre}}" class="top-button-a">
+						<a href="#/clash/{{vm.genre}}/artists" class="top-button-a">
 							<md-button ng-mouseover="vm.hoverIn()" ng-mouseleave="vm.hoverOut()" aria-label="popular artists" class="md-raised box-caption box-artists">
 								<span ng-if="!vm.hover" >Popular Artists </span>
+								<span ng-if="vm.hover">Show All</span>
 								<span>
 							</md-button>
 						</a>

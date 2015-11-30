@@ -87,16 +87,11 @@ angular
           }
         }
       })
-      // .when('/clash/:genre/:artist', {
-      //   templateUrl: '/templates/artist.html',
-      //   controller: 'ArtistCtrl',
-      //   controllerAs: 'vm',
-      //   resolve: {
-      //     artist: function() {
-      //
-      //     }
-      //   }
-      // })
+      .when('/clash/:genre/albums', {
+        templateUrl: '/templates/albums.html',
+        controller: 'AlbumsCtrl',
+        controllerAs: 'vm'      
+      })
 
 
       // .when('/artists/:id', {

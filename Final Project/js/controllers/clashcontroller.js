@@ -101,6 +101,13 @@ angular
       }
 
      vm.hover = false;
+     vm.albumHover = false;
+     vm.hoverAlbumIn = function() {
+       vm.albumHover = true;
+     }
+     vm.hoverAlbumOut = function() {
+      vm.albumHover= false;
+     }
      vm.hoverIn = function() {
        vm.hover = true;
      }

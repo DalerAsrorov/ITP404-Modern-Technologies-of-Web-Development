@@ -18,7 +18,6 @@
 							<md-button ng-mouseover="vm.hoverIn()" ng-mouseleave="vm.hoverOut()" aria-label="popular artists" class="md-raised box-caption box-artists">
 								<span ng-if="!vm.hover" >Popular Artists </span>
 								<span ng-if="vm.hover">Show All</span>
-								<span>
 							</md-button>
 						</a>
 			    </uib-carousel>
@@ -37,9 +36,10 @@
 								</md-button>
 							</a>
 						</uib-slide>
-						<a href="#" class="caption-links">
-							<md-button class="md-raised box-caption box-albums">
-								Popular Albums
+						<a href="#/clash/{{vm.genre}}/albums" class="caption-links">
+							<md-button ng-mouseover="vm.hoverAlbumIn()" ng-mouseleave="vm.hoverAlbumOut()" class="md-raised box-caption box-albums">
+								<span ng-if="!vm.albumHover" >Popular Albums </span>
+								<span ng-if="vm.albumHover">Show All</span>
 							</md-button>
 						</a>
 					</uib-carousel>
