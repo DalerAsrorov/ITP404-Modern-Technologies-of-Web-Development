@@ -122,26 +122,28 @@ angular
           }
         }
       })
-
-
-      // .when('/artists/:id', {
-      //   templateUrl: '/templates/artist.html',
-      //   controller: 'ArtistController',
-      //   controllerAs: 'vm',
-      //   resolve: {
-      //     artist: function($route, $http, $location) {
-      //       // return Artist.findRecord($route.current.params.id);
-      //       var id = $route.current.params.id;
-      //       var url = 'https://itp-api.herokuapp.com/artists/' + id;
-      //       return $http.get(url).then(function(response) {
-      //         return response.data.artist;
-      //       }, function() {
-      //         // redirect to /artists
-      //         $location.path('/artists');
-      //       });
-      //     }
-      //   }
-      // })
+      .when('/clash/:genre/songs/:genreId', {
+        templateUrl: '/templates/songs.html',
+        controller: 'SongsCtrl',
+        controllerAs: 'vm',
+        resolve: {
+          genreId: function($route, $http, $location) {
+            return $route.current.pathParams.genreId;
+          },
+          genre: function($route, $http, $location) {
+            return $route.current.pathParams.genre;
+          },
+          SearchGenre: function(SearchGenre) {
+            return SearchGenre;
+          },
+          Spotify: function(Spotify) {
+            return Spotify;
+          },
+          ngAudio: function(ngAudio) {
+            return ngAudio;
+          }
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });

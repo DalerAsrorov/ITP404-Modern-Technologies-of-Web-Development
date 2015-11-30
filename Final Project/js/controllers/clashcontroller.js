@@ -11,11 +11,10 @@ angular
       vm.loading = true;
       vm.popularityRate = 0;
       vm.description = "";
-
+      vm.genreId;
 
       var sum = 0;
 
-      console.log(vm.topArtists.length + " length.....");
       vm.topArtists.forEach(function(selectedArtist) {
         sum += selectedArtist.hotttnesss;
         Spotify.search(selectedArtist.name).then(function(artist) {
@@ -32,6 +31,7 @@ angular
        listOfGenres.forEach(function(genre) {
          if(genre.name.toLowerCase().indexOf(vm.genre.toLowerCase()) > -1 ) {
             SearchGenre.listArtists(genre.id).then(function(topAlbumsList) {
+                vm.genreId = genre.id;
                 vm.description = genre.description;
                 vm.topAlbums = topAlbumsList;
                 vm.topAlbums.forEach(function(album) {
@@ -85,8 +85,6 @@ angular
                           } else {
                             artistImageForEvent = element.items[0].images[0].url;
                           }
-                          //console.log(artist.venue.name + ", " + artist.venue.region);
-                          //console.log(artist.venue.region);
 
                           vm.loaded=true;
                           vm.addEventSlides(artistImageForEvent, element.items[0].name, artist.venue.name, artist.venue.region);
@@ -99,8 +97,14 @@ angular
          }
       }
 
+     // switch the text when the
+     // user hovers over the 'Popular (X)' box
+     // where (X) is either artists, albums,
+     // songs, or events
      vm.hover = false;
      vm.albumHover = false;
+     vm.songHover = false;
+     vm.eventHover = false;
      vm.hoverAlbumIn = function() {
        vm.albumHover = true;
      }
@@ -113,8 +117,21 @@ angular
      vm.hoverOut = function() {
        vm.hover = false;
      }
+     vm.hoverSongIn = function() {
+       vm.songHover = true;
+     }
+     vm.hoverSongOut = function() {
+      vm.songHover= false;
+     }
+     vm.hoverEventIn = function() {
+       vm.eventHover = true;
+     }
+     vm.hoverEventOut = function() {
+      vm.eventHover= false;
+     }
 
-
+      // parameters essential for the sliders
+      // to show up
       vm.myInterval = 4000;
       vm.noWrapSlides = false;
       var artistSlides = vm.artistsSlides = [];

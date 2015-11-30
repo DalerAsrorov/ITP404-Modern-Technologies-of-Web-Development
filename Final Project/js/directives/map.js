@@ -1,5 +1,5 @@
 angular
-  .module('itunes')
+  .module('app')
   .directive('map', function() {
     return {
       restrict: 'E',
