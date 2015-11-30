@@ -9,7 +9,6 @@ angular
         if(genre.name.toLowerCase().indexOf(vm.genre.toLowerCase()) > -1 ) {
            SearchGenre.listArtists(genre.id).then(function(topAlbumsList) {
                vm.topAlbums = topAlbumsList;
-               console.log(vm.topAlbums);
            });
         }
       });

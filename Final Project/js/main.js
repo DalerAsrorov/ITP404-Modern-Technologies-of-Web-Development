@@ -105,11 +105,20 @@ angular
         controller: 'AlbumCtrl',
         controllerAs: 'vm',
         resolve: {
+          album: function($route, $http, $location) {
+            return $route.current.pathParams.album;
+          },
           genre: function($route, $http, $location) {
             return $route.current.pathParams.genre;
           },
           SearchGenre: function(SearchGenre) {
             return SearchGenre;
+          },
+          Spotify: function(Spotify) {
+            return Spotify;
+          },
+          ngAudio: function(ngAudio) {
+            return ngAudio;
           }
         }
       })

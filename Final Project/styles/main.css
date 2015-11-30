@@ -415,4 +415,35 @@ input[type=range] {
   padding: 0;
   width: 100%; }
 
+.info-wrapper {
+  background: #9f6260; }
+
+.main {
+  font-weight: 800; }
+
+.info {
+  text-align: center; }
+
+.album-image {
+  width: 100%;
+  height: 360px; }
+
+.songs-wrapper {
+  margin-top: 30px;
+  text-align: center; }
+
+.md-button.md-raised:not([disabled]).back-to-albums-button {
+  color: white;
+  width: 100%;
+  margin: 0;
+  background: #9f6260; }
+
+.md-whiteframe-z5.options-box.album-box {
+  margin: 0 auto;
+  display: block;
+  float: none; }
+
+.subpage.albums-sub {
+  height: auto; }
+
 /*# sourceMappingURL=main.css.map */
