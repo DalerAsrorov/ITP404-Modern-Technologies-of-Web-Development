@@ -1,7 +1,8 @@
 angular
   .module('app')
-  .controller('ArtistCtrl', function(artist, iTunes, Spotify, ngAudio) {
+  .controller('ArtistCtrl', function(genre, artist, iTunes, Spotify, ngAudio, TopArtists) {
     vm = this;
+    vm.genre = genre;
     vm.artistName = artist;
     vm.arrayOfSongs = [];
     vm.artistImageURL;
@@ -9,32 +10,40 @@ angular
     vm.songsCollection = [];
     vm.songsLoaded = false;
     vm.sound = [];
+    vm.relatedAritsts = [];
+    vm.bio = "";
+    vm.bioMore = "";
+
+    TopArtists.getBio(vm.artistName).then(function(response) {
+      vm.bio = response.biographies[0].text;
+      vm.bioMore = response.biographies[0].url;
+    });
 
     Spotify.search(vm.artistName).then(function(artist) {
       vm.artist = artist;
       vm.artistImageURL = vm.artist.items[0].images[0].url;
-      //console.log(vm.artistImageURL);
+      var artistID = vm.artist.items[0].id;
+      Spotify.getRelatedArtists(artistID).then(function(relatedAritsts) {
+        vm.relatedAritsts = relatedAritsts;
+      })
     });
 
     iTunes.search(vm.artistName).then(function(response) {
       vm.arrayOfSongs = response;
       vm.arrayOfSongs.forEach(function(element) {
-        console.log(element);
+        //console.log(element);
         vm.songsCollection.push(element.previewUrl);
       });
 
       vm.songsCollection.forEach(function(song) {
         vm.sound.push( ngAudio.load(song));
       });
-        // vm.sound.forEach(function(song) {
-        //   vm.sound.artist =
-        // })
 
-        for(var i = 0; i < vm.sound.length; i++) {
-            vm.sound[i].songName = vm.arrayOfSongs[i].trackName;
-            vm.sound[i].songURL = vm.arrayOfSongs[i].trackViewUrl;
-        }
-        vm.songsLoaded= true;
+      for(var i = 0; i < vm.sound.length; i++) {
+          vm.sound[i].songName = vm.arrayOfSongs[i].trackName;
+          vm.sound[i].songURL = vm.arrayOfSongs[i].trackViewUrl;
+      }
+      vm.songsLoaded= true;
     });
 
 

@@ -24,6 +24,13 @@ angular
             }, function errorCallback(response) {
               console.log("Error loading artists from spotify: " + response);
           });
+      },
+      getRelatedArtists: function(artistId) {
+        var url = "https://api.spotify.com/v1/artists/" + artistId + "/related-artists";
+
+        return $http.get(url).then(function(response) {
+          return response.data.artists;
+        });
       }
     };
   });

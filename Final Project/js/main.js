@@ -67,6 +67,9 @@ angular
         controller: 'ArtistCtrl',
         controllerAs: 'vm',
         resolve: {
+          genre: function($route, $http, $location) {
+            return $route.current.pathParams.genre;
+          },
           artist: function($route, $http, $location) {
             return $route.current.pathParams.artist;
           },
@@ -78,6 +81,9 @@ angular
           },
           ngAudio: function(ngAudio) {
             return ngAudio;
+          },
+          TopArtists: function(TopArtists) {
+            return TopArtists;
           }
         }
       })
