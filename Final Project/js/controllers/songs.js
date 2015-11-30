@@ -4,25 +4,21 @@ angular
     var vm = this;
     vm.genre = genre;
     vm.genreId = genreId;
+    vm.sound = [];
 
     SearchGenre.listSongs(vm.genreId).then(function(topSongsList) {
       vm.topSongs = topSongsList.data;
+      console.log(vm.topSongs);
+
       vm.topSongs.forEach(function(song) {
-          Spotify.search(song.artist.name).then(function(artist) {
-              var imageURL = "";
-
-              if(artist.items[0] === undefined) {
-                  imageURL = 'http://www.eibn.org/upload/company_directory/logos/default.png';
-              } else if(artist.items[0].images[0] == undefined) {
-                imageURL = 'http://www.eibn.org/upload/company_directory/logos/default.png';
-              } else {
-                imageURL = artist.items[0].images[0].url;
-              }
-
-              console.log(song);
-              //vm.addSongSlides(imageURL, song.artist.name, song.name);
-          });
+        vm.sound.push(ngAudio.load(song.sample));
       });
+
+      for(var i = 0; i < vm.sound.length; i++) {
+          vm.sound[i].artist = vm.topSongs[i].artist.name;
+          vm.sound[i].album = vm.topSongs[i].album.name;
+          vm.sound[i].name = vm.topSongs[i].name;
+      }
     });
 
 

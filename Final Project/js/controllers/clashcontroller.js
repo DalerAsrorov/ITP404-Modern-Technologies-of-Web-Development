@@ -1,8 +1,9 @@
 angular
   .module('app')
-  .controller('ClashCtrl', function(artists, genre, iTunes, Spotify, SearchGenre, $location, BandsInTown) {
+  .controller('ClashCtrl', function(artists, genre, iTunes, Spotify, SearchGenre, $location, BandsInTown, $uibModal) {
       var vm = this;
       var name = "";
+      var sum = 0;
       vm.genre = genre;
       vm.topArtists = artists.artists;
       vm.topAlbums;
@@ -13,7 +14,28 @@ angular
       vm.description = "";
       vm.genreId;
 
-      var sum = 0;
+
+      vm.animationsEnabled = true;
+
+        vm.open = function (size) {
+
+          var modalInstance = $uibModal.open({
+            animation: vm.animationsEnabled,
+            templateUrl: '/templates/modal.html',
+            controller: 'SearchModalCtrl',
+            controllerAs: 'vm',
+            size: size,
+            resolve: {
+              genre: function () {
+                return vm.genre;
+              },
+              location: function($location) {
+                return $location;
+              }
+
+            }
+          });
+        };
 
       vm.topArtists.forEach(function(selectedArtist) {
         sum += selectedArtist.hotttnesss;

@@ -86,14 +86,34 @@ md-input-container.md-default-theme:not(.md-input-invalid).md-input-has-value la
 .input-box {
   display: inline; }
 
+md-toolbar-tools h1 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: inherit; }
+
+md-sidenav.md-locked-open {
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important; }
+
 .subpage {
   height: 100%;
   background: #0B1C30;
   color: white;
   font-size: 18px; }
 
+.search-tooltip {
+  font-size: 15px; }
+
 #carousel .cloud9-item, #buttons button {
   cursor: pointer; }
+
+.progress {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  display: block; }
 
 #options-section {
   margin-top: 20px; }
@@ -237,6 +257,22 @@ img.pic-box-img {
 
 .second-layer {
   border-radius: 5px; }
+
+.modal-content {
+  margin-top: 250px; }
+
+.modal-search-input {
+  float: left; }
+
+.modal-submit {
+  margin: 0; }
+
+.md-button.md-default-theme.modal-search-submit {
+  margin: 0;
+  background: #5F9EA0; }
+
+md-input-container.modal-input-container {
+  padding: 0; }
 
 .top-button-a {
   width: 100%; }
@@ -445,5 +481,37 @@ input[type=range] {
 
 .subpage.albums-sub {
   height: auto; }
+
+[layout=row] > [flex="20"].artist-song-image {
+  float: left;
+  width: 160px;
+  height: 100%; }
+
+.songs-sub {
+  height: auto; }
+
+.songs-right-wrapper {
+  height: 190px;
+  font-weight: 800; }
+
+.wrapper.songs-wrapper {
+  padding: 0; }
+
+.songs-element-wrapper {
+  width: 100%; }
+
+.song-artist-name {
+  font-style: italic; }
+
+.md-button.md-raised:not([disabled]).song-button {
+  width: 100%;
+  margin: 0;
+  color: white;
+  font-weight: 800; }
+
+.md-button.md-raised:not([disabled]).box-songs.songs {
+  width: 100%;
+  padding: 0;
+  margin: 0; }
 
 /*# sourceMappingURL=main.css.map */

@@ -9,6 +9,18 @@ $blue-color: #607d96;
 $green-color: #9d9f60;
 $caption-color: #cce5ff;
 
+md-toolbar-tools h1 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: inherit;
+}
+
+md-sidenav.md-locked-open {
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
+}
+
  .subpage{
   height: 100%;
   background: $theme-color;
@@ -16,8 +28,20 @@ $caption-color: #cce5ff;
   font-size: $default-font-size;
 }
 
+.search-tooltip {
+  font-size: 15px;
+}
+
 #carousel .cloud9-item, #buttons button {
   cursor: pointer;
+}
+
+.progress {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  display: block;
 }
 
 #options-section {
@@ -203,4 +227,25 @@ img.pic-box-img {
 
 .second-layer {
   border-radius: 5px;
+}
+
+.modal-content {
+  margin-top: 250px;
+}
+
+.modal-search-input {
+  float: left;
+}
+
+.modal-submit {
+  margin: 0;
+}
+
+.md-button.md-default-theme.modal-search-submit {
+  margin:0;
+  background: $lightblue-color;
+}
+
+md-input-container.modal-input-container {
+  padding: 0;
 }

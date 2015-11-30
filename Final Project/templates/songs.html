@@ -1,29 +1,43 @@
 <div id="songs" class="subpage songs-sub">
 	<div class="container">
-		<div id="options-section" class="option-section-class" layout-padding layout-wrap layout="row" layout-sm="column">
-			<md-whiteframe class="md-whiteframe-z5 options-box artist-box" layout layout-align="center center" id="option-artists" flex="100">
-						<a href="#/clash/{{vm.genre}}" class="top-button-a">
-							<md-button aria-label="popular songs" class="md-raised box-caption box-songs">
-								<span>Popular Songs </span>
-							</md-button>
-						</a>
-			</md-whiteframe>
-	   </div>
-     <div class="wrapper" >
-        <md-whiteframe class="md-whiteframe-z5 options-box col-lg-5 col-md-5 col-sm-10 col-xs-10 grid" layout layout-align="center center" ng-repeat="album in vm.topAlbums" id="option-artists" >
-          	<a href="#/clash/{{vm.genre}}/albums/{{album.name}}">
-              <md-button  class="md-raised button-container album-box">
-                  <img style="float: left;" ng-src="{{album.images[0].url}}">
-                  <br>
-                  <div>
-                    <div class="artist-name"><span class="weight">Album:</span> {{album.name}}</div>
-                    <div class="artist-name"><span class="weight">Artist:</span> {{album.artist.name }}</div>
-                    <div class="artist-name"><span class="weight">Release Date:</span> {{album.released | date: 'MM/dd/yyyy' }}</div>
-                    <!--{{1288323623006 | date:'MM/dd/yyyy @ h:mma'}}: 10/28/2010 @ 8:40PM -->
+    <div class="row">
+		  <div id="options-section" class="option-section-class col-lg-12" layout-padding layout-wrap layout="row" layout-sm="column">
+  			<md-whiteframe class="md-whiteframe-z5 options-box artist-box" layout layout-align="center center" id="option-artists" flex="100">
+  						<a href="#/clash/{{vm.genre}}" class="top-button-a">
+  							<md-button  class="md-raised box-songs song-button">
+  								<span>Popular Songs </span>
+  							</md-button>
+  						</a>
+  			</md-whiteframe>
+	     </div>
+      <div class="wrapper songs-wrapper col-lg-10 col-md-10 col-sm-11 col-xs-11" >
+        <md-whiteframe class="md-whiteframe-z5 options-box grid songs-element-wrapper" id="option-songs" ng-repeat="song in vm.sound">
+              <md-button  class="md-raised button-container box-songs songs" >
+                  <div flex="20">
+                  <md-button class="artist-song-image" class="md-icon-button md-primary" aria-label="Song icon." >
+                    <ng-md-icon flex="20" icon="my_library_music" size="48" options="{"duration": 375, "rotation": "none"}"></ng-md-icon>
+                  </md-button>
+                </div>
+                    <div class="song-content" flex>
+                      <ul class="songs-list">
+                        <li class="song-list-item">
+                          <div>"{{ song.name }}""</div>
+                          <div class="song-artist-name"> by {{ song.artist }}</div>
+                          <div class="song-artist-name"> {{ song.album }}</div>
+                          <div class="audio-controls-wrapper">
+                            <input class="form-control ng-pristine ng-untouched ng-valid progress" type="range" min="0" max="1" step="0.01" ng-model="song.progress">
+                            <md-button aria-label="button" ng-click='song.paused ? song.play() : song.pause()' aria-label="play-paus"><span class="glyphicon glyphicon-play play" ></span></md-button>
+                            <md-button aria-label="button" ng-click='song.restart()' aria-label="play-paus"><span class="glyphicon glyphicon-stop play" ></span></md-button >
+                            <md-button aria-label="button" ng-click='song.muting = !song.muting' aria-label="play-paus"><span class="glyphicon glyphicon-volume-off play"></span></md-button >
+                            <a aria-label="button"class="link" ng-href="{{song.songURL}}" target="_blank"><md-button class="buy" aria-label="Buy Button."><span class="glyphicon glyphicon-shopping-cart play"></span></md-button > </a>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-              </md-button>
             </a>
         </md-whiteframe>
+      </div>
     </div>
 	</div>
 </div>
