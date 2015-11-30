@@ -406,4 +406,13 @@ input[type=range] {
   padding: 0;
   margin: 0; }
 
+.md-button.md-raised:not([disabled]).box-albums {
+  background: #9f6260; }
+
+.md-button.md-raised:not([disabled]).album-box {
+  background: #9f6260;
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
 /*# sourceMappingURL=main.css.map */

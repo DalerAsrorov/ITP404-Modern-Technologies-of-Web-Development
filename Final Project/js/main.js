@@ -90,7 +90,15 @@ angular
       .when('/clash/:genre/albums', {
         templateUrl: '/templates/albums.html',
         controller: 'AlbumsCtrl',
-        controllerAs: 'vm'      
+        controllerAs: 'vm',
+        resolve: {
+          genre: function($route, $http, $location) {
+            return $route.current.pathParams.genre;
+          },
+          SearchGenre: function(SearchGenre) {
+            return SearchGenre;
+          }
+        }
       })
 
 

@@ -25,8 +25,7 @@ angular
         });
       });
 
-      vm.popularityRate = (sum / vm.topArtists.length) * 100;
-
+      vm.popularityRate = (sum / vm.topArtists.length) * 100; // popularity rate average
 
      SearchGenre.listAll(vm.genre).then(function(listOfGenres) {
        console.log(listOfGenres);
