@@ -18,14 +18,23 @@ angular
     iTunes.search(vm.artistName).then(function(response) {
       vm.arrayOfSongs = response;
       vm.arrayOfSongs.forEach(function(element) {
+        console.log(element);
         vm.songsCollection.push(element.previewUrl);
       });
 
       vm.songsCollection.forEach(function(song) {
         vm.sound.push( ngAudio.load(song));
       });
+        // vm.sound.forEach(function(song) {
+        //   vm.sound.artist =
+        // })
 
-      console.log(vm.sound);
+        for(var i = 0; i < vm.sound.length; i++) {
+            vm.sound[i].songName = vm.arrayOfSongs[i].trackName;
+            vm.sound[i].songURL = vm.arrayOfSongs[i].trackViewUrl;
+        }
+
+
 
     });
 

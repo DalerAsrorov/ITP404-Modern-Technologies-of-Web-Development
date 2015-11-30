@@ -12,18 +12,19 @@
           </div>
         </div>
 
-        <div layout="column" class="wrapper-right-i" flex>
-          <md-whiteframe class="md-whiteframe-z5 options-box song-box" layout layout-align="center center" id="option-artists" >
-              <div class="nav-songs">Songs</div>
+        <div layout="column" class="wrapper-right-i" flex="60">
+          <md-whiteframe class="md-whiteframe-z5 options-box song-box" layout="column" id="option-artists" >
+              <div class="nav-songs"> <span>Songs </span></div>
               <div class="list-of-songs">
-                <ul>
-                <li  ng-repeat="song in vm.sound" >
-									<md-button ng-click='song.paused ? song.play() : song.pause()'>Pause</md-button>
-									<md-button  ng-click='song.restart()'>Stop</md-button >
-									<md-button  ng-click='song.muting = !song.muting'>Mute</md-button > <br>
-										<label>Current Time</label>
- 										<input class='form-control' type=text ng-model='song.currentTime'>
-                  </li>
+                <ul class="songs-list">
+                	<li  ng-repeat="song in vm.sound" class="song-list-item">
+										<label>{{ song.songName }}</label>
+										<input class='form-control time-progress' type=text ng-model='song.currentTime'>
+										<md-button ng-click='song.paused ? song.play() : song.pause()'><span class="glyphicon glyphicon-play play"></span></md-button>
+										<md-button  ng-click='song.restart()'><span class="glyphicon glyphicon-stop play"></span></md-button >
+										<md-button  ng-click='song.muting = !song.muting'><span class="glyphicon glyphicon-volume-off play"></span></md-button >
+										<a class="link" ng-href="{{song.songURL}}" target="_blank"><md-button><span class="glyphicon glyphicon-shopping-cart play"></span></md-button > </a>
+	                </li>
                 </ul>
               </div>
           </md-whiteframe>

@@ -11,11 +11,52 @@
   text-align: center;
 }
 
-.list-of-songs {
+.wrapper-i {
+  width: 100%;
+}
 
+.list-of-songs {
+  margin-top: 20px;
+}
+
+.play {
+  font-size: 30px;
+}
+
+.song-list-item {
+  margin-top: 8px;
+}
+
+.nav-songs {
+  display: table;
+  width: 100%;
+  padding: 12px;
+  font-size: 25px;
+  font-weight: 800;
+  background: $lightblue-color;
 }
 
 .song-box {
   height: 310px;
   overflow-y: auto;
+}
+
+.songs-list {
+  list-style-type:none;
+  text-align: center;
+}
+
+.time-progress {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+
+  &:hover {
+    color: white;
+  }
 }
