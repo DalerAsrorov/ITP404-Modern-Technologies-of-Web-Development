@@ -13,9 +13,14 @@ angular
       vm.popularityRate = 0;
       vm.description = "";
       vm.genreId;
+      vm.searchArtistModalText = "Search Artist";
+      vm.avgPopRateText = "Avg. Popularity Rate";
       vm.hottnessInfo = "This number indicates the average % of popularity rate taken from their performance in charts and social media. ";
-
+      vm.mapInfoNotice = " Waiting for the map to load the events... ";
       vm.mapLoaded = false;
+      vm.mapNav = "Map of Top Events Near You";
+      vm.topPercent = "100";
+      vm.aboutGenreText = "About Genre";
 
       var lat = 30.141198;
       var lon = -38.787720;

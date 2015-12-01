@@ -92,6 +92,13 @@ md-toolbar-tools h1 {
   font-weight: inherit;
   margin: inherit; }
 
+.map-wait-notice {
+  font-size: 40px;
+  text-align: center;
+  float: none;
+  display: block;
+  margin: 0 auto; }
+
 md-sidenav.md-locked-open {
   width: 150px !important;
   min-width: 150px !important;

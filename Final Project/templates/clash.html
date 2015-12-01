@@ -14,7 +14,7 @@
 		<md-button class="md-fab md-fab-top-right right"  aria-label="Photos" ng-click="vm.open('sm')">
       <ng-md-icon icon="search" size="30" options="{"duration": 375, "rotation": "none"}"></ng-md-icon>
       <md-tooltip class="search-tooltip">
-        Search Artist
+      	{{ vm.searchArtistModalTex }}
     	</md-tooltip>
 		</md-button>
 
@@ -24,23 +24,24 @@
 					<div class="popularity-rate" >
 						<div class="hidden-help" ng-if="vm.infoHovered"> {{ vm.hottnessInfo }} </div>
 						<div class="nav-box popularity">
-							Avt. Popularity Rate
+								{{ vm.avgPopRateText }}
 							<span class="glyphicon glyphicon-info-sign info-question" ng-mouseover="vm.hoverInfoIn()" ng-mouseout="vm.hoverInfoOut()"></span>
 						</div>
-						<div class="popularity-number"> {{   vm.popularityRate | limitTo: 2 }} <span class="outOfHundreed">/ 100 </span> </div>
+						<div class="popularity-number"> {{ vm.popularityRate | limitTo: 2 }} <span class="outOfHundreed">/ {{vm.topPercent}} </span> </div>
 					</div>
 			</md-whiteframe>
 			<md-whiteframe class="md-whiteframe-z5 options-box second-layer col-lg-9" id="option-artists" >
 					<div class="about-genre" flex>
-						<div class="nav-box description" >About Genre</div>
+						<div class="nav-box description" >{{vm.aboutGenreText}}</div>
 						<div class="genre-description"> {{ vm.description }} </div>
 					</div>
 			</md-whiteframe>
 		</div>
 
 		<br><br>
+		<div ng-if="!vm.mapLoaded" class="map-wait-notice"> {{ vm.mapInfoNotice }} </div>
 		<div layout="column" class="map-container" ng-show="vm.mapLoaded">
-				<div class="nav-box popularity map-nav"  >Map of Top Events Near You</div>
+				<div class="nav-box popularity map-nav" >{{ vm.mapNav }}</div>
 				<map map="map" id="map-canvas">
 				</map>
 		</div>
