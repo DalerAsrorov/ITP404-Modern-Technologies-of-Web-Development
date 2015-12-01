@@ -18,13 +18,15 @@
     	</md-tooltip>
 		</md-button>
 
-
-
 		<br><br>
 		<div layout="row" layout-sm="column">
 			<md-whiteframe class="md-whiteframe-z5 options-box second-layer col-lg-3" id="option-artists">
 					<div class="popularity-rate" >
-						<div class="nav-box popularity">Avg. Popularity Rate</div>
+						<div class="hidden-help" ng-if="vm.infoHovered"> {{ vm.hottnessInfo }} </div>
+						<div class="nav-box popularity">
+							Avt. Popularity Rate
+							<span class="glyphicon glyphicon-info-sign info-question" ng-mouseover="vm.hoverInfoIn()" ng-mouseout="vm.hoverInfoOut()"></span>
+						</div>
 						<div class="popularity-number"> {{   vm.popularityRate | limitTo: 2 }} <span class="outOfHundreed">/ 100 </span> </div>
 					</div>
 			</md-whiteframe>

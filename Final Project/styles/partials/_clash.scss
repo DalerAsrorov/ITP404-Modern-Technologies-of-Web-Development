@@ -255,3 +255,19 @@ md-input-container.md-default-theme .md-input.modal-search-input {
   color: black;
   font-weight: 800;
 }
+
+.hidden-help {
+    position: absolute;
+    height: 120px;
+    width: 250px;
+    top: -120px;
+    left: 140;
+    background: $lightblue-color;
+    padding: 10px
+}
+
+.glyphicon.info-question {
+  float: right;
+  top: 4.5px;
+  right: 8px;
+}

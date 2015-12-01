@@ -14,6 +14,7 @@ angular
       vm.description = "";
       vm.genreId;
 
+      vm.hottnessInfo = "This number indicates the average % of popularity rate taken from their performance in charts and social media. ";
 
       vm.animationsEnabled = true;
 
@@ -127,6 +128,7 @@ angular
      vm.albumHover = false;
      vm.songHover = false;
      vm.eventHover = false;
+     vm.infoHovered = false;
      vm.hoverAlbumIn = function() {
        vm.albumHover = true;
      }
@@ -150,6 +152,12 @@ angular
      }
      vm.hoverEventOut = function() {
       vm.eventHover= false;
+     }
+     vm.hoverInfoIn = function() {
+       vm.infoHovered = true;
+     }
+     vm.hoverInfoOut = function() {
+      vm.infoHovered= false;
      }
 
       // parameters essential for the sliders
