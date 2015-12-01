@@ -1,7 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 @import url(https://fonts.googleapis.com/css?family=Dosis);
 body {
-  font-family: 'Dosis', sans-serif; }
+  font-family: 'Dosis', sans-serif;
+  background: #0B1C30; }
 
 #login-page {
   height: 100%;
@@ -291,6 +292,8 @@ md-input-container.md-default-theme .md-input.modal-search-input {
   float: right;
   top: 4.5px;
   right: 8px; }
+  .glyphicon.info-question:hover {
+    color: #5F9EA0; }
 
 .top-button-a {
   width: 100%; }

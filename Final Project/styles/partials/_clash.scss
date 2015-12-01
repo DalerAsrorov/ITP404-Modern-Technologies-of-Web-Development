@@ -270,4 +270,8 @@ md-input-container.md-default-theme .md-input.modal-search-input {
   float: right;
   top: 4.5px;
   right: 8px;
+
+  &:hover {
+    color: $lightblue-color;
+  }
 }
