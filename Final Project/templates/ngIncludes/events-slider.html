@@ -2,7 +2,7 @@
 <uib-carousel ng-if="vm.loaded" interval="vm.myInterval" no-wrap="vm.noWrapSlides" aria-label="Slides for events.">
 	<uib-slide ng-repeat="slide in vm.eventSlides" active="slide.active">
 
-		<a href="#">
+		<a href="#/clash/{{vm.genre}}/events">
 			<md-button class="md-raised pic-box">
 				<img ng-src="{{slide.image}}" class="pic-box-img" style="margin:auto;">
 				<div class="carousel-caption songs">

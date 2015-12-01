@@ -144,6 +144,19 @@ angular
           }
         }
       })
+      .when('/clash/:genre/events/', {
+        templateUrl: '/templates/events.html',
+        controller: 'EventsCtrl',
+        controllerAs: 'vm',
+        resolve: {
+          genre: function($route, $http, $location) {
+            return $route.current.pathParams.genre;
+          },
+          BandsInTown: function(BandsInTown) {
+            return BandsInTown;
+          }
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });
