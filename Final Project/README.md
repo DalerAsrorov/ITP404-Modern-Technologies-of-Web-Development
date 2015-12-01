@@ -14,7 +14,8 @@ The application will utilize the following tools:
  - AngularJS
  - Angular Material Framework
  - Bootstrap UI
- - HTML/CSS
+ - HTML5/CSS3
+ - Karma, Jasmine, and PhantomJS (for testing).
 
 ## How to run
 *To run the application in your local machine, you should:*

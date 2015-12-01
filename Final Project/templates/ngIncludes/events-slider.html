@@ -2,7 +2,7 @@
 <uib-carousel ng-if="vm.loaded" interval="vm.myInterval" no-wrap="vm.noWrapSlides" aria-label="Slides for events.">
 	<uib-slide ng-repeat="slide in vm.eventSlides" active="slide.active">
 
-		<a href="#/clash/{{vm.genre}}/events">
+		<a href="#/clash/{{vm.genre}}/events/{{vm.genreId}}">
 			<md-button class="md-raised pic-box">
 				<img ng-src="{{slide.image}}" class="pic-box-img" style="margin:auto;">
 				<div class="carousel-caption songs">
@@ -12,7 +12,7 @@
 			</md-button>
 		</a>
 	</uib-slide>
-	<a href="#/clash/{{vm.genre}}/events" class="caption-links">
+	<a href="#/clash/{{vm.genre}}/events/{{vm.genreId}}" class="caption-links">
 			<md-button aria-label="Show All Events" ng-mouseover="vm.hoverEventIn()" ng-mouseleave="vm.hoverEventOut()" class="md-raised box-caption box-events">
 				<span ng-if="!vm.eventHover" >Popular Events </span>
 				<span ng-if="vm.eventHover">Show All</span>

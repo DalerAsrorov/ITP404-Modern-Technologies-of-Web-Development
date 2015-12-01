@@ -144,16 +144,25 @@ angular
           }
         }
       })
-      .when('/clash/:genre/events/', {
+      .when('/clash/:genre/events/:genreId', {
         templateUrl: '/templates/events.html',
         controller: 'EventsCtrl',
         controllerAs: 'vm',
         resolve: {
+          genreId: function($route, $http, $location) {
+            return $route.current.pathParams.genreId;
+          },
           genre: function($route, $http, $location) {
             return $route.current.pathParams.genre;
           },
           BandsInTown: function(BandsInTown) {
             return BandsInTown;
+          },
+          SearchGenre: function(SearchGenre) {
+            return SearchGenre;
+          },
+          Spotify: function(Spotify) {
+            return Spotify;
           }
         }
       })

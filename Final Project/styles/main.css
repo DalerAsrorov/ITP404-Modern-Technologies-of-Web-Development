@@ -532,4 +532,23 @@ input[type=range] {
   padding: 0;
   margin: 0; }
 
+.heightAuto {
+  height: auto; }
+
+.md-button.md-raised:not([disabled]).event-box {
+  background: #9d9f60;
+  margin: 0;
+  width: 100%;
+  padding: 0; }
+
+.caption-links.venue-link {
+  color: #0000CD; }
+  .caption-links.venue-link:hover {
+    color: #1010ff;
+    background: none;
+    text-decoration: underline; }
+
+md-progress-circular.events {
+  margin: 200px auto; }
+
 /*# sourceMappingURL=main.css.map */

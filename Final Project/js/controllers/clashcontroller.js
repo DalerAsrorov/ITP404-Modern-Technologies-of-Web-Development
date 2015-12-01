@@ -84,41 +84,40 @@ angular
        });
      });
 
-
      var artistImageForEvent = "";
      vm.loaded = false;
-      vm.addEvents = function(artist) {
-         if(navigator.geolocation) {
-           navigator.geolocation.getCurrentPosition(function(position) {
-             var pos = {
-               lat: position.coords.latitude,
-               lng: position.coords.longitude
-             };
-              var bands = BandsInTown.findConcert(artist, pos);
-              bands.then(function(response){
-                //console.log(response);
-                if(response.length !== 0 && response !==null && response !== 'undefined') {
-                  response.forEach(function(artist) {
-                      artist.artists.forEach(function(oneArtist) {
-                        Spotify.search(oneArtist.name).then(function(element) {
-                          if(element.items[0] == undefined) {
-                              artistImageForEvent = 'http://www.eibn.org/upload/company_directory/logos/default.png';
-                          } else if(element.items[0].images[0] == undefined) {
+     vm.addEvents = function(artist) {
+       if(navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(function(position) {
+           var pos = {
+             lat: position.coords.latitude,
+             lng: position.coords.longitude
+           };
+            var bands = BandsInTown.findConcert(artist, pos);
+            bands.then(function(response){
+              //console.log(response);
+              if(response.length !== 0 && response !==null && response !== 'undefined') {
+                response.forEach(function(artist) {
+                    artist.artists.forEach(function(oneArtist) {
+                      Spotify.search(oneArtist.name).then(function(element) {
+                        if(element.items[0] == undefined) {
                             artistImageForEvent = 'http://www.eibn.org/upload/company_directory/logos/default.png';
-                          } else {
-                            artistImageForEvent = element.items[0].images[0].url;
-                          }
+                        } else if(element.items[0].images[0] == undefined) {
+                          artistImageForEvent = 'http://www.eibn.org/upload/company_directory/logos/default.png';
+                        } else {
+                          artistImageForEvent = element.items[0].images[0].url;
+                        }
 
-                          vm.loaded=true;
-                          vm.addEventSlides(artistImageForEvent, element.items[0].name, artist.venue.name, artist.venue.region);
-                        });
-                      })
-                  })
-                }
-              })
-           });
-         }
-      }
+                        vm.loaded=true;
+                        vm.addEventSlides(artistImageForEvent, element.items[0].name, artist.venue.name, artist.venue.region);
+                      });
+                    })
+                })
+              }
+            })
+         });
+       }
+    }
 
      // switch the text when the
      // user hovers over the 'Popular (X)' box
