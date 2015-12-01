@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .controller('ClashCtrl', function(artists, genre, iTunes, Spotify, SearchGenre, $location, BandsInTown, $uibModal) {
+  .controller('ClashCtrl', function(artists, genre, iTunes, Spotify, SearchGenre, $location, BandsInTown, $uibModal, $route) {
       var vm = this;
       var name = "";
       var sum = 0;
@@ -13,8 +13,53 @@ angular
       vm.popularityRate = 0;
       vm.description = "";
       vm.genreId;
-
       vm.hottnessInfo = "This number indicates the average % of popularity rate taken from their performance in charts and social media. ";
+
+      vm.mapLoaded = false;
+
+      var lat = 30.141198;
+      var lon = -38.787720;
+
+      var center = new google.maps.LatLng(lat, lon); //3​0.141198, ­38.787720
+
+
+      function setContent(artistObj) {
+        var d = new Date(artistObj.on_sale_datetime);
+
+        var contentStr = '<div class="map-artist">' + artistObj.artists[0].name + '</div>' + '<div class="map-venue"> ' + artistObj.venue.name +
+        '</div> <div class="map-date">' + d.getMonth() + "/" + d.getDay() + "/" + d.getFullYear()  + '</div>' +
+        '<div>' ;
+        //  + d.toLocaleString() + '</div>'
+
+        console.log(contentStr);
+        return contentStr;
+
+      };
+
+      function addEventToMap (artistObj, lat, lon, map) {
+        //console.log(artistObj);
+        var myLatLng = new google.maps.LatLng(parseFloat(lat), parseFloat(lon));
+        var newCenter = new google.maps.LatLng(lat, lon);
+
+        var contentStr = setContent(artistObj);
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentStr
+        });
+
+        //created the new marker with animation and custom icon
+      	var marker = new google.maps.Marker({
+      		position: myLatLng,
+      		map: map,
+      		animation: google.maps.Animation.DROP
+      	});
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+
+        map.setCenter(new google.maps.LatLng(lat, lon));
+      };
+
 
       vm.animationsEnabled = true;
 
@@ -49,8 +94,9 @@ angular
 
       vm.popularityRate = (sum / vm.topArtists.length) * 100; // popularity rate average
 
+    var map;
      SearchGenre.listAll(vm.genre).then(function(listOfGenres) {
-       console.log(listOfGenres);
+       //console.log(listOfGenres);
        listOfGenres.forEach(function(genre) {
          if(genre.name.toLowerCase().indexOf(vm.genre.toLowerCase()) > -1 ) {
             SearchGenre.listArtists(genre.id).then(function(topAlbumsList) {
@@ -66,7 +112,6 @@ angular
               vm.topSongs.forEach(function(song) {
                   Spotify.search(song.artist.name).then(function(artist) {
                       var imageURL = "";
-                      console.log(song.artist.name);
                       vm.addEvents(song.artist.name);
 
                       if(artist.items[0] == undefined) {
@@ -86,6 +131,7 @@ angular
 
      var artistImageForEvent = "";
      vm.loaded = false;
+     var aEvents = [];
      vm.addEvents = function(artist) {
        if(navigator.geolocation) {
          navigator.geolocation.getCurrentPosition(function(position) {
@@ -95,23 +141,40 @@ angular
            };
             var bands = BandsInTown.findConcert(artist, pos);
             bands.then(function(response){
-              //console.log(response);
               if(response.length !== 0 && response !==null && response !== 'undefined') {
                 response.forEach(function(artist) {
-                    artist.artists.forEach(function(oneArtist) {
-                      Spotify.search(oneArtist.name).then(function(element) {
-                        if(element.items[0] == undefined) {
-                            artistImageForEvent = 'http://www.eibn.org/upload/company_directory/logos/default.png';
-                        } else if(element.items[0].images[0] == undefined) {
-                          artistImageForEvent = 'http://www.eibn.org/upload/company_directory/logos/default.png';
-                        } else {
-                          artistImageForEvent = element.items[0].images[0].url;
-                        }
 
-                        vm.loaded=true;
-                        vm.addEventSlides(artistImageForEvent, element.items[0].name, artist.venue.name, artist.venue.region);
-                      });
-                    })
+                  aEvents.push(artist);
+                  //creating the map and setting it up to the given location: 3​0.141198, ­38.787720
+                  map = new google.maps.Map(document.getElementById('map-canvas'), {
+                    center: center,
+                    zoom: 5
+                  });
+                  console.log(artist);
+                  // plot the points on Google Maps
+                  addEventToMap(artist, artist.venue.latitude, artist.venue.longitude, map);
+                  map.setZoom(11);
+
+                  artist.artists.forEach(function(oneArtist) {
+                    Spotify.search(oneArtist.name).then(function(element) {
+                      if(element.items[0] == undefined) {
+                          artistImageForEvent = 'http://www.eibn.org/upload/company_directory/logos/default.png';
+                      } else if(element.items[0].images[0] == undefined) {
+                        artistImageForEvent = 'http://www.eibn.org/upload/company_directory/logos/default.png';
+                      } else {
+                        artistImageForEvent = element.items[0].images[0].url;
+                      }
+
+                      vm.loaded=true;
+
+                      vm.addEventSlides(artistImageForEvent, element.items[0].name, artist.venue.name, artist.venue.region);
+                      vm.mapLoaded = true;
+                    });
+                  })
+                });
+                aEvents = _.uniq(aEvents, 'id');;
+                aEvents.forEach(function(event) {
+                  addEventToMap(event, event.venue.latitude, event.venue.longitude, map);
                 });
               };
             });
@@ -202,17 +265,4 @@ angular
           state: state
         });
       };
-
-      var lat = 30.141198;
-      var lon = -38.787720;
-
-      var center = new google.maps.LatLng(lat, lon); //3​0.141198, ­38.787720
-
-      //creating the map and setting it up to the given location: 3​0.141198, ­38.787720
-      var map = new google.maps.Map(document.getElementById('map-canvas'), {
-        center: center,
-        zoom: 5
-      });
-
-
   });

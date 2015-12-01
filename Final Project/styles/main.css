@@ -313,6 +313,14 @@ map {
   -moz-box-shadow: 0px -1px 25px 0px white;
   box-shadow: 0px -1px 25px 0px white; }
 
+.gm-style .gm-style-iw {
+  text-align: center;
+  color: black; }
+
+.map-artist {
+  font-weight: 800;
+  font-size: 15px; }
+
 .top-button-a {
   width: 100%; }
 

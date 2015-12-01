@@ -39,8 +39,8 @@
 		</div>
 
 		<br><br>
-		<div layout="column" class="map-container">
-				<div class="nav-box popularity map-nav" >Map of Events</div>
+		<div layout="column" class="map-container" ng-show="vm.mapLoaded">
+				<div class="nav-box popularity map-nav"  >Map of Top Events Near You</div>
 				<map map="map" id="map-canvas">
 				</map>
 		</div>
