@@ -1,15 +1,16 @@
 <div id="songs" class="subpage songs-sub">
 	<div class="container">
     <div class="row">
-		  <div id="options-section" class="option-section-class col-lg-12" layout-padding layout-wrap layout="row" layout-sm="column">
-  			<md-whiteframe class="md-whiteframe-z5 options-box artist-box" layout layout-align="center center" id="option-artists" flex="100">
-  						<a href="#/clash/{{vm.genre}}" class="top-button-a">
-  							<md-button  class="md-raised box-songs song-button">
-  								<span>Popular Songs </span>
-  							</md-button>
-  						</a>
-  			</md-whiteframe>
-	     </div>
+			<div id="options-section" class="option-section-class" layout-padding layout-wrap layout="row" layout-sm="column">
+				<md-whiteframe class="md-whiteframe-z5 options-box artist-box" layout layout-align="center center" id="option-artists" flex="100">
+							<a href="#/clash/{{vm.genre}}" class="top-button-a">
+								<md-button aria-label="popular sogns" class="md-raised box-caption box-songs">
+									<span> Popular Songs </span>
+									<span>
+								</md-button>
+							</a>
+				</md-whiteframe>
+		   </div>
       <div class="wrapper songs-wrapper col-lg-10 col-md-10 col-sm-11 col-xs-11" style="float: none; margin: 0 auto" >
         <md-whiteframe class="md-whiteframe-z5 options-box grid songs-element-wrapper" id="option-songs" style="margin: 10px 0px;" ng-repeat="song in vm.sound">
               <md-button  class="md-raised button-container box-songs songs" >
@@ -29,7 +30,6 @@
                             <md-button aria-label="button" ng-click='song.paused ? song.play() : song.pause()' aria-label="play-paus"><span class="glyphicon glyphicon-play play" ></span></md-button>
                             <md-button aria-label="button" ng-click='song.restart()' aria-label="play-paus"><span class="glyphicon glyphicon-stop play" ></span></md-button >
                             <md-button aria-label="button" ng-click='song.muting = !song.muting' aria-label="play-paus"><span class="glyphicon glyphicon-volume-off play"></span></md-button >
-                            <a aria-label="button"class="link" ng-href="{{song.songURL}}" target="_blank"><md-button class="buy" aria-label="Buy Button."><span class="glyphicon glyphicon-shopping-cart play"></span></md-button > </a>
                           </div>
                         </li>
                       </ul>
