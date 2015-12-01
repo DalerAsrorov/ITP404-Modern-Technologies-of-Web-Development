@@ -1,4 +1,4 @@
-<div id="clash" class="subpage">
+<div id="clash" class="subpage clash">
 	<div class="container">
 		<div id="options-section" layout-padding layout-wrap layout="row" layout-sm="column">
 			<md-whiteframe ng-include="'/templates/ngIncludes/artists-slider.html'" class="md-whiteframe-z5 options-box" id="option-artists" flex>
@@ -39,7 +39,9 @@
 		</div>
 
 		<br><br>
-		<div layout="row" layout-sm="column">
-				<map></map>
+		<div layout="column" class="map-container">
+				<div class="nav-box popularity map-nav" >Map of Events</div>
+				<map map="map" id="map-canvas">
+				</map>
 		</div>
 </div>

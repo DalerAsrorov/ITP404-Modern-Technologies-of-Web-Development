@@ -80,7 +80,7 @@ angular
                   });
               });
             });
-         }
+         };
        });
      });
 
@@ -112,12 +112,12 @@ angular
                         vm.addEventSlides(artistImageForEvent, element.items[0].name, artist.venue.name, artist.venue.region);
                       });
                     })
-                })
-              }
-            })
+                });
+              };
+            });
          });
-       }
-    }
+       };
+    };
 
      // switch the text when the
      // user hovers over the 'Popular (X)' box
@@ -130,34 +130,34 @@ angular
      vm.infoHovered = false;
      vm.hoverAlbumIn = function() {
        vm.albumHover = true;
-     }
+     };
      vm.hoverAlbumOut = function() {
       vm.albumHover= false;
-     }
+    };
      vm.hoverIn = function() {
        vm.hover = true;
-     }
+     };
      vm.hoverOut = function() {
        vm.hover = false;
-     }
+     };
      vm.hoverSongIn = function() {
        vm.songHover = true;
-     }
+     };
      vm.hoverSongOut = function() {
       vm.songHover= false;
-     }
+    };
      vm.hoverEventIn = function() {
        vm.eventHover = true;
-     }
+     };
      vm.hoverEventOut = function() {
       vm.eventHover= false;
-     }
+    };
      vm.hoverInfoIn = function() {
        vm.infoHovered = true;
-     }
+     };
      vm.hoverInfoOut = function() {
       vm.infoHovered= false;
-     }
+    };
 
       // parameters essential for the sliders
       // to show up
@@ -182,7 +182,7 @@ angular
           name: artistName,
           album: albumName
         });
-      }
+      };
 
       var songSlides = vm.songSlides = [];
       vm.addSongSlides = function(image, artistName, songName) {
@@ -191,7 +191,7 @@ angular
           name: artistName,
           song: songName
         });
-      }
+      };
 
       var eventSlides = vm.eventSlides = [];
       vm.addEventSlides = function(image, artistName, venueName, state) {
@@ -201,6 +201,18 @@ angular
           venueName: venueName,
           state: state
         });
-      }
+      };
+
+      var lat = 30.141198;
+      var lon = -38.787720;
+
+      var center = new google.maps.LatLng(lat, lon); //3​0.141198, ­38.787720
+
+      //creating the map and setting it up to the given location: 3​0.141198, ­38.787720
+      var map = new google.maps.Map(document.getElementById('map-canvas'), {
+        center: center,
+        zoom: 5
+      });
+
 
   });

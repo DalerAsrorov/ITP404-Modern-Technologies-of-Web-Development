@@ -29,6 +29,7 @@ The application will utilize the following tools:
 
 ## APIs
 *The APIs used to get and render data are the following:*
+  - Google Maps API
   - Rhaspody API
   - Spotify API
   - EchoNest API
