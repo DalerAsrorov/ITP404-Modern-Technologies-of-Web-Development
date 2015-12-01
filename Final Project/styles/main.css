@@ -460,6 +460,25 @@ input[type=range] {
   padding: 0;
   margin: 0; }
 
+.md-button.md-raised:not([disabled]).clash-link {
+  width: 100%;
+  margin: 0;
+  background: #A2687C; }
+
+.md-button.md-raised:not([disabled]).artists-link {
+  width: 100%;
+  margin: 0;
+  background: #5F9EA0; }
+
+.buttons-wrapper {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 1px 5px 35px 0px white;
+  -moz-box-shadow: 1px 5px 35px 0px white;
+  box-shadow: 1px 5px 35px 0px white; }
+
 .md-button.md-raised:not([disabled]).box-albums {
   background: #9f6260; }
 

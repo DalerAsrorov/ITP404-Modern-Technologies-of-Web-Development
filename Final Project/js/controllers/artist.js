@@ -14,6 +14,15 @@ angular
     vm.bio = "";
     vm.bioMore = "";
 
+
+    vm.isOpen = false;
+    vm.demo = {
+      isOpen: false,
+      count: 0,
+      selectedDirection: 'right'
+    };
+
+
     TopArtists.getBio(vm.artistName).then(function(response) {
       vm.bio = response.biographies[0].text;
       vm.bioMore = response.biographies[0].url;

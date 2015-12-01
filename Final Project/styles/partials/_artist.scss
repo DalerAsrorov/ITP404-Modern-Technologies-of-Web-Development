@@ -143,6 +143,8 @@ input[type=range] {
     }
 }
 
+
+
 .related-artist-image {
   width: 250px;
   height: 180px;
@@ -151,4 +153,26 @@ input[type=range] {
 .md-button.related-artist-button {
   padding: 0;
   margin: 0;
+}
+
+.md-button.md-raised:not([disabled]).clash-link {
+  width: 100%;
+  margin: 0;
+  background: #A2687C;
+}
+
+.md-button.md-raised:not([disabled]).artists-link {
+  width: 100%;
+  margin: 0;
+  background: $lightblue-color;
+}
+
+.buttons-wrapper {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 1px 5px 35px 0px rgba(255,255,255,1);
+  -moz-box-shadow: 1px 5px 35px 0px rgba(255,255,255,1);
+  box-shadow: 1px 5px 35px 0px rgba(255,255,255,1);
 }
