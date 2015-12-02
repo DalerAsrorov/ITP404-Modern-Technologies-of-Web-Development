@@ -21,20 +21,21 @@ angular
       vm.mapNav = "Map of Top Events Near You";
       vm.topPercent = "100";
       vm.aboutGenreText = "About Genre";
-
+      var map;
       var lat = 30.141198;
       var lon = -38.787720;
 
-      var center = new google.maps.LatLng(lat, lon); //3​0.141198, ­38.787720
+      var center = new google.maps.LatLng(lat, lon);
 
-
+      // returns the string that
+      // will be contained in the
+      // info box.
       function setContent(artistObj) {
         var d = new Date(artistObj.on_sale_datetime);
 
         var contentStr = '<div class="map-artist">' + artistObj.artists[0].name + '</div>' + '<div class="map-venue"> ' + artistObj.venue.name +
         '</div> <div class="map-date">' + d.getMonth() + "/" + d.getDay() + "/" + d.getFullYear()  + '</div>' +
         '<div>' ;
-        //  + d.toLocaleString() + '</div>'
 
         console.log(contentStr);
         return contentStr;
@@ -99,7 +100,6 @@ angular
 
       vm.popularityRate = (sum / vm.topArtists.length) * 100; // popularity rate average
 
-    var map;
      SearchGenre.listAll(vm.genre).then(function(listOfGenres) {
        //console.log(listOfGenres);
        listOfGenres.forEach(function(genre) {
